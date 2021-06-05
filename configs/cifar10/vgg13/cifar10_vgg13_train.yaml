@@ -1,0 +1,76 @@
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a vgg13 --dataname cifar10 --config cifar10_vgg13_train --logterminal
+# ===== Configuration ===== #
+config: cifar10_vgg13_train
+# ===== Architecture ===== #
+arch: 'vgg13'
+pretrained: False
+resume: ''
+# ===== Dataset ===== #
+dataname: 'cifar10'
+datapath: './data/cifar10/'
+workers: 20
+batch_size: 128
+# ===== Initialization ===== #
+init_policy: 'kaimingn'
+init_kaiming_mode: 'fan_in'
+init_kaiming_nonlinearity: 'relu'
+init_bias: 'zero'
+# ===== Optimization ======== #
+optimizer: 'SGD+M'
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0005
+lr: 0.05
+lr_policy: 'cosine_lr'
+warmup_length: 0
+lr_steps: [80, 120]
+lr_gamma: 0.1
+lowest_lr: 0.0
+scale_coslr: 1.02
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+# ===== Pruning ======== #
+prepruned_model: False
+prepruned_scen: ''
+nonpruned_percent: 0
+pruning_strategy: 'lottery'
+quantize-prepruned: False
+quantize-bias: True
+local_quant: False
+prune_bias: False
+prune_bn: False
+initial_stage: 0
+stages: 50
+# ===== Asni ======== #
+asni_mode: 'sigmoid'
+asni_perc_max: 100
+asni_sin_scale: 16
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_sigmoid_mag_1: 90
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_scale_1: 5
+asni_sigmoid_mag_2: 10
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_scale_2: 2
+# ===== Lottery ======== #
+percent: 0
+local_prune: False
+# ===== STR ======== #
+init_threshold: -10
+init_threshold_type: 'constant'
+str-nonlinear: 'sigmoid'
+str-activation: 'relu'
+# ===== RigL ======== #
+# ===== SNIP ======== #
+# ===== Distributed processing ======== #
+gpu_idx: '0'
+local_rank: 0 
+channels_last: False
+# ===== Logging ======== #
+print_freq_tr: 10
+print_freq_ts: 10
+logterminal: False

@@ -1,0 +1,67 @@
+# python -m torch.distributed.launch --nproc_per_node=5 --master_port=$RANDOM main.py -a resnet50 --dataname imagenet --config imagenet_resnet50_train
+# ===== Configuration ===== #
+config: imagenet_resnet50_train
+# ===== Architecture ===== #
+arch: 'resnet50'
+pretrained: False
+resume: ''
+# ===== Dataset ===== #
+dataname: 'imagenet'
+datapath: '/datasets/imagenet/'
+workers: 20
+batch_size: 205
+# ===== Initialization ===== #
+init_policy: 'kaimingn'
+init_kaiming_mode: 'fan_in'
+init_kaiming_nonlinearity: 'relu'
+init_bias: 'zero'
+# ===== Optimization ======== #
+optimizer: 'SGD+M'
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0001
+lr: 0.35
+lr_policy: 'cosine_lr'
+lr_steps: [30, 60, 80]
+lr_gamma: 0.1
+warmup_length: 0
+lowest_lr: 0.0
+scale_coslr: 1.04
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+# ===== Pruning ======== #
+prepruned_model: False
+prepruned_scen: ''
+nonpruned_percent: 0
+pruning_strategy: 'lottery'
+# ===== Asni ======== #
+asni_sin_scale: 16
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_perc_max: 100
+# ===== Lottery ======== #
+percent: 0
+local_prune: False
+# ===== STR ======== #
+init_threshold: -10
+init_threshold_type: 'constant'
+str-nonlinear: 'sigmoid'
+str-activation: 'relu'
+# ===== RigL ======== #
+# ===== SNIP ======== #
+initial_stage: 0
+stages: 90
+prune_bias: False
+prune_bn: False
+local_quant: False
+# ===== Distributed processing ======== #
+gpu_idx: '34567'
+local_rank: 0 
+channels_last: False
+# ===== Logging ======== #
+print_freq_tr: 10
+print_freq_ts: 10
+logterminal: True

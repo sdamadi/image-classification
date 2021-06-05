@@ -1,0 +1,68 @@
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv6 --dataname mnist --config mnist_conv6_quantized
+# ===== Configuration ===== #
+config: mnist_conv6_quantized
+# ===== Architecture ===== #
+arch: 'conv6'
+pretrained: False
+resume: ''
+# ===== Dataset ===== #
+dataname: 'mnist'
+datapath: './data/mnist/'
+workers: 20
+batch_size: 512
+# ===== Initialization ===== #
+init_policy: 'kaimingn'
+init_kaiming_mode: 'fan_in'
+init_kaiming_nonlinearity: 'relu'
+init_bias: 'zero'
+# ===== Optimization ======== #
+optimizer: 'SGD+M'
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.032
+lr_policy: 'cosine_lr'
+warmup_length: 0
+lr_step: 0
+lr_gamma: 0.0
+lowest_lr: 0.001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+# ===== Pruning ======== #
+initial_stage: 0
+stages: 5
+prepruned_model: True
+quantize_prepruned: False
+prepruned_scen: '2021_4_27_1_3_26'
+nonpruned_percent: 2.5
+pruning_strategy: 'quantize'
+prune_bias: False
+prune_bn: False
+local_quant: False
+# ===== Asni ======== #
+asni_sin_scale: 15
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_perc_max: 100
+# ===== Lottery ======== #
+percent: 0
+local_prune: False
+# ===== STR ======== #
+init_threshold: -10
+init_threshold_type: 'constant'
+str-nonlinear: 'sigmoid'
+str-activation: 'relu'
+# ===== RigL ======== #
+# ===== SNIP ======== #
+
+# ===== Distributed processing ======== #
+gpu_idx: '0'
+local_rank: 0 
+channels_last: False
+# ===== Logging ======== #
+print_freq_tr: 10
+print_freq_ts: 10
