@@ -1,0 +1,108 @@
+
+========> The following is the setup for this run:
+
+2021_5_28_5_3_28_data_cifar10_arch_conv4_init_kaimingn_GPUs_1_minib_60_opt_Adam_lr_0.0003_lrpolicy_constant_lr_ep_1_strategy_lottery_initstg_0_stg_25
+
+arch: conv4
+pretrained: False
+resume: 
+dataname: cifar10
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 60
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: Adam
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0003
+lr_policy: constant_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+initial_stage: 0
+stages: 25
+prepruned_model: False
+quantize_prepruned: False
+quantize_bias: False
+prepruned_scen: 
+pruning_strategy: lottery
+nonpruned_percent: 99.8
+mask_stage: 0
+prune_bn: False
+prune_bias: False
+local_quant: False
+asni_perc_max: 100
+asni_mode: sigmoid
+asni_rest_stage: 1000
+asni_sin_scale: 1
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_sigmoid_scale_1: 1
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_mag_1: 100
+asni_sigmoid_scale_2: 1
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_mag_2: 100
+percent: 0
+local_prune: False
+init_threshold: -5
+init_threshold_type: constant
+str_nonlinear: sigmoid
+str_activation: relu
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar10_conv4_train
+logterminal: True
+save_stages: False
+gpu_idx: ['3']
+local_rank: 0
+channels_last: False
+lr_step: 0
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 1555.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['3'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 3 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+=> The model, i.e., conv4, is being replicated on 1 processes.
+
+conv1_weight                     | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (64, 3, 3, 3)
+conv1_bias                       | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+conv2_weight                     | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+conv2_bias                       | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+conv3_weight                     | nonzeros =   73728 /   73728 (100.00%) | total_pruned =       0 | shape = (128, 64, 3, 3)
+conv3_bias                       | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+conv4_weight                     | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+conv4_bias                       | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+fc1_weight                       | nonzeros = 2097152 / 2097152 (100.00%) | total_pruned =       0 | shape = (256, 8192)
+fc1_bias                         | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+fc2_weight                       | nonzeros =   65536 /   65536 (100.00%) | total_pruned =       0 | shape = (256, 256)
+fc2_bias                         | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+fc3_weight                       | nonzeros =    2560 /    2560 (100.00%) | total_pruned =       0 | shape = (10, 256)
+fc3_bias                         | nonzeros =       0 /      10 (  0.00%) | total_pruned =      10 | shape = (10)
+
+Stg: [ 0/25] | Pruning Stg: [ 0/ 0] | Nonz: 2425024 | Pruned: 906 | Total: 2425930 | Comp:  1.00x  (0.04% pruned)
+
+Stg: [ 0/25] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/ 834] | Time(avg): 3.15 | Speed: (pics/sec):   191
+Learning rate: 0.00030000 | Curr loss: 3.5588 | Avg loss: 5.5252 | Prec@1(avg) 13.00 % | Prec@5(avg) 50.17 %
+
+Stg: [ 0/25] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/ 834] | Time(avg): 2.83 | Speed: (pics/sec):   212
+Learning rate: 0.00030000 | Curr loss: 2.4399 | Avg loss: 4.0661 | Prec@1(avg) 13.08 % | Prec@5(avg) 53.50 %
+

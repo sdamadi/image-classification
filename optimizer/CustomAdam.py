@@ -1,12 +1,9 @@
-# the step method of the optimizer has changed to get
-# masl as the input to freeze small elements
-
 import torch
 import math
 
 class CustomAdam(torch.optim.Adam):
     @torch.no_grad()
-    def step(self, mask, closure=None):
+    def step(self, closure=None):
         """Performs a single optimization step.
         Arguments:
             closure (callable, optional): A closure that reevaluates the model
@@ -16,7 +13,6 @@ class CustomAdam(torch.optim.Adam):
         if closure is not None:
             with torch.enable_grad():
                 loss = closure()
-        idx = 0
         for group in self.param_groups:
             for p in group['params']:
                 if p.grad is None:
@@ -54,18 +50,10 @@ class CustomAdam(torch.optim.Adam):
                 # Decay the first and second moment running average coefficient
                 exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
                 exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
-                
-                if mask != None: 
-                    layer_mask = mask[idx]
-                    exp_avg.mul_(layer_mask)
-                    exp_avg_sq.mul_(layer_mask)
 
                 if amsgrad:
                     # Maintains the maximum of all 2nd moment running avg. till now
                     torch.max(max_exp_avg_sq, exp_avg_sq, out=max_exp_avg_sq)
-                    if mask != None: 
-                        layer_mask = mask[idx]
-                        max_exp_avg_sq.mul_(layer_mask)
                     # Use the max. for normalizing running avg. of gradient
                     denom = (max_exp_avg_sq.sqrt() / math.sqrt(bias_correction2)).add_(group['eps'])
                 else:
@@ -74,5 +62,4 @@ class CustomAdam(torch.optim.Adam):
                 step_size = group['lr'] / bias_correction1
 
                 p.addcdiv_(exp_avg, denom, value=-step_size)
-                idx += 1
         return loss

@@ -1,0 +1,1397 @@
+
+========> The following is the setup for this run:
+
+2021_5_28_6_36_12_data_imagenet_arch_mobilenet_v2_init_kaimingn_GPUs_4_minib_205_opt_SGD+M_lr_0.4_lrpolicy_cosine_lr_ep_1_strategy_lottery_initstg_0_stg_150
+
+arch: mobilenet_v2
+pretrained: False
+resume: 
+dataname: imagenet
+datapath: /datasets/imagenet/
+workers: 20
+batch_size: 205
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+label_smoothing: 0.1
+weight_decay: 4e-05
+lr: 0.4
+lr_policy: cosine_lr
+warmup_length: 5
+lr_gamma: 0.1
+lr_steps: [30, 60, 80]
+lowest_lr: 0.0
+scale_coslr: 1.02
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+initial_stage: 0
+stages: 150
+prepruned_model: False
+quantize_prepruned: False
+quantize_bias: False
+prepruned_scen: 
+pruning_strategy: lottery
+nonpruned_percent: 0
+mask_stage: 0
+prune_bn: False
+prune_bias: False
+local_quant: False
+asni_perc_max: 100
+asni_mode: sigmoid
+asni_rest_stage: 150.0
+asni_sin_scale: 16
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_sigmoid_scale_1: 1
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_mag_1: 100
+asni_sigmoid_scale_2: 1
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_mag_2: 100
+percent: 0
+local_prune: False
+init_threshold: -10
+init_threshold_type: constant
+str_nonlinear: sigmoid
+str_activation: relu
+print_freq_tr: 10
+print_freq_ts: 10
+config: imagenet_mobilenet_v2_train
+logterminal: True
+save_stages: False
+gpu_idx: ['0', '1', '2', '3']
+local_rank: 0
+channels_last: False
+str-nonlinear: sigmoid
+str-activation: relu
+distributed: True
+world_size: 4
+
+=> Global rank of the current node is 0 and the process id is 32879.
+=> There are 4 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0', '1', '2', '3'] for running 4 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+
+=> The model, i.e., mobilenet_v2, is being replicated on 4 processes.
+
+features_0_0_weight              | nonzeros =     864 /     864 (100.00%) | total_pruned =       0 | shape = (32, 3, 3, 3)
+features_0_1_weight              | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_0_1_bias                | nonzeros =       0 /      32 (  0.00%) | total_pruned =      32 | shape = (32)
+features_1_conv_0_0_weight       | nonzeros =     288 /     288 (100.00%) | total_pruned =       0 | shape = (32, 1, 3, 3)
+features_1_conv_0_1_weight       | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_1_conv_0_1_bias         | nonzeros =       0 /      32 (  0.00%) | total_pruned =      32 | shape = (32)
+features_1_conv_1_weight         | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (16, 32, 1, 1)
+features_1_conv_2_weight         | nonzeros =      16 /      16 (100.00%) | total_pruned =       0 | shape = (16)
+features_1_conv_2_bias           | nonzeros =       0 /      16 (  0.00%) | total_pruned =      16 | shape = (16)
+features_2_conv_0_0_weight       | nonzeros =    1536 /    1536 (100.00%) | total_pruned =       0 | shape = (96, 16, 1, 1)
+features_2_conv_0_1_weight       | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_0_1_bias         | nonzeros =       0 /      96 (  0.00%) | total_pruned =      96 | shape = (96)
+features_2_conv_1_0_weight       | nonzeros =     864 /     864 (100.00%) | total_pruned =       0 | shape = (96, 1, 3, 3)
+features_2_conv_1_1_weight       | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_1_1_bias         | nonzeros =       0 /      96 (  0.00%) | total_pruned =      96 | shape = (96)
+features_2_conv_2_weight         | nonzeros =    2304 /    2304 (100.00%) | total_pruned =       0 | shape = (24, 96, 1, 1)
+features_2_conv_3_weight         | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_2_conv_3_bias           | nonzeros =       0 /      24 (  0.00%) | total_pruned =      24 | shape = (24)
+features_3_conv_0_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (144, 24, 1, 1)
+features_3_conv_0_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_0_1_bias         | nonzeros =       0 /     144 (  0.00%) | total_pruned =     144 | shape = (144)
+features_3_conv_1_0_weight       | nonzeros =    1296 /    1296 (100.00%) | total_pruned =       0 | shape = (144, 1, 3, 3)
+features_3_conv_1_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_1_1_bias         | nonzeros =       0 /     144 (  0.00%) | total_pruned =     144 | shape = (144)
+features_3_conv_2_weight         | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (24, 144, 1, 1)
+features_3_conv_3_weight         | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_3_conv_3_bias           | nonzeros =       0 /      24 (  0.00%) | total_pruned =      24 | shape = (24)
+features_4_conv_0_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (144, 24, 1, 1)
+features_4_conv_0_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_0_1_bias         | nonzeros =       0 /     144 (  0.00%) | total_pruned =     144 | shape = (144)
+features_4_conv_1_0_weight       | nonzeros =    1296 /    1296 (100.00%) | total_pruned =       0 | shape = (144, 1, 3, 3)
+features_4_conv_1_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_1_1_bias         | nonzeros =       0 /     144 (  0.00%) | total_pruned =     144 | shape = (144)
+features_4_conv_2_weight         | nonzeros =    4608 /    4608 (100.00%) | total_pruned =       0 | shape = (32, 144, 1, 1)
+features_4_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_4_conv_3_bias           | nonzeros =       0 /      32 (  0.00%) | total_pruned =      32 | shape = (32)
+features_5_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_5_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_0_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_5_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_5_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_1_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_5_conv_2_weight         | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (32, 192, 1, 1)
+features_5_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_5_conv_3_bias           | nonzeros =       0 /      32 (  0.00%) | total_pruned =      32 | shape = (32)
+features_6_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_6_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_0_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_6_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_6_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_1_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_6_conv_2_weight         | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (32, 192, 1, 1)
+features_6_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_6_conv_3_bias           | nonzeros =       0 /      32 (  0.00%) | total_pruned =      32 | shape = (32)
+features_7_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_7_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_0_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_7_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_7_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_1_1_bias         | nonzeros =       0 /     192 (  0.00%) | total_pruned =     192 | shape = (192)
+features_7_conv_2_weight         | nonzeros =   12288 /   12288 (100.00%) | total_pruned =       0 | shape = (64, 192, 1, 1)
+features_7_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_7_conv_3_bias           | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+features_8_conv_0_0_weight       | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_8_conv_0_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_0_1_bias         | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_8_conv_1_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_8_conv_1_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_1_1_bias         | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_8_conv_2_weight         | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_8_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_8_conv_3_bias           | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+features_9_conv_0_0_weight       | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_9_conv_0_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_0_1_bias         | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_9_conv_1_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_9_conv_1_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_1_1_bias         | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_9_conv_2_weight         | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_9_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_9_conv_3_bias           | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+features_10_conv_0_0_weight      | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_10_conv_0_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_0_1_bias        | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_10_conv_1_0_weight      | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_10_conv_1_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_1_1_bias        | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_10_conv_2_weight        | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_10_conv_3_weight        | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_10_conv_3_bias          | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+features_11_conv_0_0_weight      | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_11_conv_0_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_0_1_bias        | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_11_conv_1_0_weight      | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_11_conv_1_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_1_1_bias        | nonzeros =       0 /     384 (  0.00%) | total_pruned =     384 | shape = (384)
+features_11_conv_2_weight        | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (96, 384, 1, 1)
+features_11_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_11_conv_3_bias          | nonzeros =       0 /      96 (  0.00%) | total_pruned =      96 | shape = (96)
+features_12_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_12_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_0_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_12_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_12_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_1_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_12_conv_2_weight        | nonzeros =   55295 /   55296 (100.00%) | total_pruned =       1 | shape = (96, 576, 1, 1)
+features_12_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_12_conv_3_bias          | nonzeros =       0 /      96 (  0.00%) | total_pruned =      96 | shape = (96)
+features_13_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_13_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_0_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_13_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_13_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_1_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_13_conv_2_weight        | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (96, 576, 1, 1)
+features_13_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_13_conv_3_bias          | nonzeros =       0 /      96 (  0.00%) | total_pruned =      96 | shape = (96)
+features_14_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_14_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_0_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_14_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_14_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_1_1_bias        | nonzeros =       0 /     576 (  0.00%) | total_pruned =     576 | shape = (576)
+features_14_conv_2_weight        | nonzeros =   92160 /   92160 (100.00%) | total_pruned =       0 | shape = (160, 576, 1, 1)
+features_14_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_14_conv_3_bias          | nonzeros =       0 /     160 (  0.00%) | total_pruned =     160 | shape = (160)
+features_15_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_15_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_0_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_15_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_15_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_1_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_15_conv_2_weight        | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (160, 960, 1, 1)
+features_15_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_15_conv_3_bias          | nonzeros =       0 /     160 (  0.00%) | total_pruned =     160 | shape = (160)
+features_16_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_16_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_0_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_16_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_16_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_1_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_16_conv_2_weight        | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (160, 960, 1, 1)
+features_16_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_16_conv_3_bias          | nonzeros =       0 /     160 (  0.00%) | total_pruned =     160 | shape = (160)
+features_17_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_17_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_0_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_17_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_17_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_1_1_bias        | nonzeros =       0 /     960 (  0.00%) | total_pruned =     960 | shape = (960)
+features_17_conv_2_weight        | nonzeros =  307200 /  307200 (100.00%) | total_pruned =       0 | shape = (320, 960, 1, 1)
+features_17_conv_3_weight        | nonzeros =     320 /     320 (100.00%) | total_pruned =       0 | shape = (320)
+features_17_conv_3_bias          | nonzeros =       0 /     320 (  0.00%) | total_pruned =     320 | shape = (320)
+features_18_0_weight             | nonzeros =  409600 /  409600 (100.00%) | total_pruned =       0 | shape = (1280, 320, 1, 1)
+features_18_1_weight             | nonzeros =    1280 /    1280 (100.00%) | total_pruned =       0 | shape = (1280)
+features_18_1_bias               | nonzeros =       0 /    1280 (  0.00%) | total_pruned =    1280 | shape = (1280)
+classifier_1_weight              | nonzeros = 1280000 / 1280000 (100.00%) | total_pruned =       0 | shape = (1000, 1280)
+classifier_1_bias                | nonzeros =       0 /    1000 (  0.00%) | total_pruned =    1000 | shape = (1000)
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Nonz: 3486815 | Pruned: 18057 | Total: 3504872 | Comp:  1.01x  (0.52% pruned)
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  10/1563] | Time(avg): 9.44 | Speed: (pics/sec):   869
+Learning rate: 0.08000000 | Curr loss: 7.0015 | Avg loss: 7.0618 | Prec@1(avg) 0.10 % | Prec@5(avg) 0.63 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  20/1563] | Time(avg): 7.08 | Speed: (pics/sec):  1158
+Learning rate: 0.08000000 | Curr loss: 6.9982 | Avg loss: 7.0299 | Prec@1(avg) 0.10 % | Prec@5(avg) 0.57 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  30/1563] | Time(avg): 6.30 | Speed: (pics/sec):  1301
+Learning rate: 0.08000000 | Curr loss: 6.9808 | Avg loss: 7.0174 | Prec@1(avg) 0.11 % | Prec@5(avg) 0.54 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  40/1563] | Time(avg): 5.91 | Speed: (pics/sec):  1386
+Learning rate: 0.08000000 | Curr loss: 6.9998 | Avg loss: 7.0093 | Prec@1(avg) 0.09 % | Prec@5(avg) 0.52 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  50/1563] | Time(avg): 5.69 | Speed: (pics/sec):  1441
+Learning rate: 0.08000000 | Curr loss: 6.9720 | Avg loss: 7.0009 | Prec@1(avg) 0.10 % | Prec@5(avg) 0.53 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  60/1563] | Time(avg): 5.54 | Speed: (pics/sec):  1481
+Learning rate: 0.08000000 | Curr loss: 6.9775 | Avg loss: 6.9953 | Prec@1(avg) 0.11 % | Prec@5(avg) 0.56 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  70/1563] | Time(avg): 5.43 | Speed: (pics/sec):  1510
+Learning rate: 0.08000000 | Curr loss: 6.9593 | Avg loss: 6.9879 | Prec@1(avg) 0.11 % | Prec@5(avg) 0.60 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  80/1563] | Time(avg): 5.35 | Speed: (pics/sec):  1532
+Learning rate: 0.08000000 | Curr loss: 6.9035 | Avg loss: 6.9807 | Prec@1(avg) 0.13 % | Prec@5(avg) 0.64 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  90/1563] | Time(avg): 5.30 | Speed: (pics/sec):  1548
+Learning rate: 0.08000000 | Curr loss: 6.9314 | Avg loss: 6.9748 | Prec@1(avg) 0.13 % | Prec@5(avg) 0.68 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 100/1563] | Time(avg): 5.25 | Speed: (pics/sec):  1563
+Learning rate: 0.08000000 | Curr loss: 6.8747 | Avg loss: 6.9681 | Prec@1(avg) 0.13 % | Prec@5(avg) 0.71 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 110/1563] | Time(avg): 5.20 | Speed: (pics/sec):  1576
+Learning rate: 0.08000000 | Curr loss: 6.9418 | Avg loss: 6.9620 | Prec@1(avg) 0.14 % | Prec@5(avg) 0.74 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 120/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 6.8776 | Avg loss: 6.9547 | Prec@1(avg) 0.15 % | Prec@5(avg) 0.78 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 130/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1596
+Learning rate: 0.08000000 | Curr loss: 6.8289 | Avg loss: 6.9461 | Prec@1(avg) 0.17 % | Prec@5(avg) 0.82 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 140/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1602
+Learning rate: 0.08000000 | Curr loss: 6.8333 | Avg loss: 6.9385 | Prec@1(avg) 0.18 % | Prec@5(avg) 0.88 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 150/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1608
+Learning rate: 0.08000000 | Curr loss: 6.7815 | Avg loss: 6.9295 | Prec@1(avg) 0.20 % | Prec@5(avg) 0.93 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 160/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1607
+Learning rate: 0.08000000 | Curr loss: 6.7762 | Avg loss: 6.9209 | Prec@1(avg) 0.22 % | Prec@5(avg) 1.00 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 170/1563] | Time(avg): 5.09 | Speed: (pics/sec):  1612
+Learning rate: 0.08000000 | Curr loss: 6.7376 | Avg loss: 6.9117 | Prec@1(avg) 0.23 % | Prec@5(avg) 1.05 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 180/1563] | Time(avg): 5.07 | Speed: (pics/sec):  1616
+Learning rate: 0.08000000 | Curr loss: 6.7269 | Avg loss: 6.9017 | Prec@1(avg) 0.25 % | Prec@5(avg) 1.12 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 190/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1620
+Learning rate: 0.08000000 | Curr loss: 6.7001 | Avg loss: 6.8920 | Prec@1(avg) 0.26 % | Prec@5(avg) 1.17 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 200/1563] | Time(avg): 5.05 | Speed: (pics/sec):  1622
+Learning rate: 0.08000000 | Curr loss: 6.6562 | Avg loss: 6.8829 | Prec@1(avg) 0.27 % | Prec@5(avg) 1.22 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 210/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1622
+Learning rate: 0.08000000 | Curr loss: 6.6483 | Avg loss: 6.8732 | Prec@1(avg) 0.28 % | Prec@5(avg) 1.28 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 220/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1622
+Learning rate: 0.08000000 | Curr loss: 6.6785 | Avg loss: 6.8636 | Prec@1(avg) 0.30 % | Prec@5(avg) 1.33 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 230/1563] | Time(avg): 5.05 | Speed: (pics/sec):  1623
+Learning rate: 0.08000000 | Curr loss: 6.6173 | Avg loss: 6.8543 | Prec@1(avg) 0.32 % | Prec@5(avg) 1.41 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 240/1563] | Time(avg): 5.05 | Speed: (pics/sec):  1623
+Learning rate: 0.08000000 | Curr loss: 6.5968 | Avg loss: 6.8448 | Prec@1(avg) 0.34 % | Prec@5(avg) 1.48 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 250/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1621
+Learning rate: 0.08000000 | Curr loss: 6.6065 | Avg loss: 6.8352 | Prec@1(avg) 0.35 % | Prec@5(avg) 1.55 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 260/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1622
+Learning rate: 0.08000000 | Curr loss: 6.6046 | Avg loss: 6.8263 | Prec@1(avg) 0.37 % | Prec@5(avg) 1.62 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 270/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1619
+Learning rate: 0.08000000 | Curr loss: 6.5783 | Avg loss: 6.8168 | Prec@1(avg) 0.39 % | Prec@5(avg) 1.69 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 280/1563] | Time(avg): 5.06 | Speed: (pics/sec):  1620
+Learning rate: 0.08000000 | Curr loss: 6.5300 | Avg loss: 6.8074 | Prec@1(avg) 0.41 % | Prec@5(avg) 1.76 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 290/1563] | Time(avg): 5.07 | Speed: (pics/sec):  1619
+Learning rate: 0.08000000 | Curr loss: 6.5495 | Avg loss: 6.7977 | Prec@1(avg) 0.43 % | Prec@5(avg) 1.84 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 300/1563] | Time(avg): 5.07 | Speed: (pics/sec):  1617
+Learning rate: 0.08000000 | Curr loss: 6.4721 | Avg loss: 6.7876 | Prec@1(avg) 0.46 % | Prec@5(avg) 1.94 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 310/1563] | Time(avg): 5.07 | Speed: (pics/sec):  1616
+Learning rate: 0.08000000 | Curr loss: 6.4586 | Avg loss: 6.7773 | Prec@1(avg) 0.48 % | Prec@5(avg) 2.02 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 320/1563] | Time(avg): 5.08 | Speed: (pics/sec):  1615
+Learning rate: 0.08000000 | Curr loss: 6.4807 | Avg loss: 6.7681 | Prec@1(avg) 0.50 % | Prec@5(avg) 2.09 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 330/1563] | Time(avg): 5.08 | Speed: (pics/sec):  1613
+Learning rate: 0.08000000 | Curr loss: 6.3996 | Avg loss: 6.7584 | Prec@1(avg) 0.52 % | Prec@5(avg) 2.17 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 340/1563] | Time(avg): 5.09 | Speed: (pics/sec):  1610
+Learning rate: 0.08000000 | Curr loss: 6.4067 | Avg loss: 6.7484 | Prec@1(avg) 0.55 % | Prec@5(avg) 2.27 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 350/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1609
+Learning rate: 0.08000000 | Curr loss: 6.3954 | Avg loss: 6.7389 | Prec@1(avg) 0.57 % | Prec@5(avg) 2.37 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 360/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1609
+Learning rate: 0.08000000 | Curr loss: 6.3751 | Avg loss: 6.7295 | Prec@1(avg) 0.60 % | Prec@5(avg) 2.45 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 370/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1608
+Learning rate: 0.08000000 | Curr loss: 6.3984 | Avg loss: 6.7200 | Prec@1(avg) 0.63 % | Prec@5(avg) 2.54 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 380/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1607
+Learning rate: 0.08000000 | Curr loss: 6.4030 | Avg loss: 6.7102 | Prec@1(avg) 0.66 % | Prec@5(avg) 2.64 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 390/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1608
+Learning rate: 0.08000000 | Curr loss: 6.3909 | Avg loss: 6.7010 | Prec@1(avg) 0.68 % | Prec@5(avg) 2.72 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 400/1563] | Time(avg): 5.10 | Speed: (pics/sec):  1607
+Learning rate: 0.08000000 | Curr loss: 6.3021 | Avg loss: 6.6916 | Prec@1(avg) 0.70 % | Prec@5(avg) 2.82 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 410/1563] | Time(avg): 5.11 | Speed: (pics/sec):  1606
+Learning rate: 0.08000000 | Curr loss: 6.2968 | Avg loss: 6.6819 | Prec@1(avg) 0.74 % | Prec@5(avg) 2.92 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 420/1563] | Time(avg): 5.11 | Speed: (pics/sec):  1604
+Learning rate: 0.08000000 | Curr loss: 6.2437 | Avg loss: 6.6726 | Prec@1(avg) 0.77 % | Prec@5(avg) 3.02 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 430/1563] | Time(avg): 5.11 | Speed: (pics/sec):  1603
+Learning rate: 0.08000000 | Curr loss: 6.3248 | Avg loss: 6.6633 | Prec@1(avg) 0.80 % | Prec@5(avg) 3.12 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 440/1563] | Time(avg): 5.11 | Speed: (pics/sec):  1603
+Learning rate: 0.08000000 | Curr loss: 6.2728 | Avg loss: 6.6541 | Prec@1(avg) 0.83 % | Prec@5(avg) 3.23 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 450/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1603
+Learning rate: 0.08000000 | Curr loss: 6.2430 | Avg loss: 6.6458 | Prec@1(avg) 0.85 % | Prec@5(avg) 3.31 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 460/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1602
+Learning rate: 0.08000000 | Curr loss: 6.2683 | Avg loss: 6.6370 | Prec@1(avg) 0.88 % | Prec@5(avg) 3.41 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 470/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1602
+Learning rate: 0.08000000 | Curr loss: 6.2516 | Avg loss: 6.6282 | Prec@1(avg) 0.91 % | Prec@5(avg) 3.49 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 480/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1602
+Learning rate: 0.08000000 | Curr loss: 6.2006 | Avg loss: 6.6199 | Prec@1(avg) 0.94 % | Prec@5(avg) 3.58 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 490/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1602
+Learning rate: 0.08000000 | Curr loss: 6.1486 | Avg loss: 6.6114 | Prec@1(avg) 0.96 % | Prec@5(avg) 3.68 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 500/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1601
+Learning rate: 0.08000000 | Curr loss: 6.1876 | Avg loss: 6.6035 | Prec@1(avg) 0.99 % | Prec@5(avg) 3.77 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 510/1563] | Time(avg): 5.12 | Speed: (pics/sec):  1601
+Learning rate: 0.08000000 | Curr loss: 6.1496 | Avg loss: 6.5949 | Prec@1(avg) 1.02 % | Prec@5(avg) 3.86 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 520/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1600
+Learning rate: 0.08000000 | Curr loss: 6.1424 | Avg loss: 6.5864 | Prec@1(avg) 1.05 % | Prec@5(avg) 3.96 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 530/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1599
+Learning rate: 0.08000000 | Curr loss: 6.1617 | Avg loss: 6.5781 | Prec@1(avg) 1.08 % | Prec@5(avg) 4.06 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 540/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1600
+Learning rate: 0.08000000 | Curr loss: 6.1371 | Avg loss: 6.5706 | Prec@1(avg) 1.11 % | Prec@5(avg) 4.14 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 550/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1599
+Learning rate: 0.08000000 | Curr loss: 6.0628 | Avg loss: 6.5626 | Prec@1(avg) 1.13 % | Prec@5(avg) 4.23 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 560/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1599
+Learning rate: 0.08000000 | Curr loss: 6.1166 | Avg loss: 6.5551 | Prec@1(avg) 1.16 % | Prec@5(avg) 4.31 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 570/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1599
+Learning rate: 0.08000000 | Curr loss: 6.0625 | Avg loss: 6.5476 | Prec@1(avg) 1.18 % | Prec@5(avg) 4.40 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 580/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1599
+Learning rate: 0.08000000 | Curr loss: 6.0727 | Avg loss: 6.5397 | Prec@1(avg) 1.22 % | Prec@5(avg) 4.49 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 590/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1598
+Learning rate: 0.08000000 | Curr loss: 6.0049 | Avg loss: 6.5318 | Prec@1(avg) 1.25 % | Prec@5(avg) 4.60 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 600/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1597
+Learning rate: 0.08000000 | Curr loss: 6.0459 | Avg loss: 6.5244 | Prec@1(avg) 1.27 % | Prec@5(avg) 4.68 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 610/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1597
+Learning rate: 0.08000000 | Curr loss: 6.0769 | Avg loss: 6.5171 | Prec@1(avg) 1.30 % | Prec@5(avg) 4.78 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 620/1563] | Time(avg): 5.13 | Speed: (pics/sec):  1597
+Learning rate: 0.08000000 | Curr loss: 6.0548 | Avg loss: 6.5098 | Prec@1(avg) 1.32 % | Prec@5(avg) 4.86 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 630/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1596
+Learning rate: 0.08000000 | Curr loss: 6.0415 | Avg loss: 6.5029 | Prec@1(avg) 1.35 % | Prec@5(avg) 4.94 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 640/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1596
+Learning rate: 0.08000000 | Curr loss: 6.0617 | Avg loss: 6.4958 | Prec@1(avg) 1.38 % | Prec@5(avg) 5.02 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 650/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1595
+Learning rate: 0.08000000 | Curr loss: 6.0434 | Avg loss: 6.4887 | Prec@1(avg) 1.42 % | Prec@5(avg) 5.11 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 660/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1595
+Learning rate: 0.08000000 | Curr loss: 6.0213 | Avg loss: 6.4820 | Prec@1(avg) 1.44 % | Prec@5(avg) 5.19 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 670/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1595
+Learning rate: 0.08000000 | Curr loss: 6.0952 | Avg loss: 6.4752 | Prec@1(avg) 1.47 % | Prec@5(avg) 5.28 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 680/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1595
+Learning rate: 0.08000000 | Curr loss: 5.9995 | Avg loss: 6.4684 | Prec@1(avg) 1.50 % | Prec@5(avg) 5.36 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 690/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1595
+Learning rate: 0.08000000 | Curr loss: 5.9488 | Avg loss: 6.4614 | Prec@1(avg) 1.53 % | Prec@5(avg) 5.45 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 700/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1594
+Learning rate: 0.08000000 | Curr loss: 5.9404 | Avg loss: 6.4544 | Prec@1(avg) 1.56 % | Prec@5(avg) 5.53 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 710/1563] | Time(avg): 5.14 | Speed: (pics/sec):  1594
+Learning rate: 0.08000000 | Curr loss: 5.9662 | Avg loss: 6.4476 | Prec@1(avg) 1.60 % | Prec@5(avg) 5.63 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 720/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1593
+Learning rate: 0.08000000 | Curr loss: 6.0156 | Avg loss: 6.4409 | Prec@1(avg) 1.63 % | Prec@5(avg) 5.71 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 730/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1593
+Learning rate: 0.08000000 | Curr loss: 5.8969 | Avg loss: 6.4343 | Prec@1(avg) 1.66 % | Prec@5(avg) 5.80 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 740/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1593
+Learning rate: 0.08000000 | Curr loss: 5.9424 | Avg loss: 6.4276 | Prec@1(avg) 1.69 % | Prec@5(avg) 5.89 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 750/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1593
+Learning rate: 0.08000000 | Curr loss: 5.9196 | Avg loss: 6.4211 | Prec@1(avg) 1.72 % | Prec@5(avg) 5.98 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 760/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1592
+Learning rate: 0.08000000 | Curr loss: 5.9124 | Avg loss: 6.4147 | Prec@1(avg) 1.75 % | Prec@5(avg) 6.06 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 770/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1592
+Learning rate: 0.08000000 | Curr loss: 5.8856 | Avg loss: 6.4084 | Prec@1(avg) 1.78 % | Prec@5(avg) 6.15 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 780/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1592
+Learning rate: 0.08000000 | Curr loss: 5.9604 | Avg loss: 6.4022 | Prec@1(avg) 1.81 % | Prec@5(avg) 6.24 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 790/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1591
+Learning rate: 0.08000000 | Curr loss: 5.9248 | Avg loss: 6.3960 | Prec@1(avg) 1.84 % | Prec@5(avg) 6.32 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 800/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1591
+Learning rate: 0.08000000 | Curr loss: 5.8815 | Avg loss: 6.3897 | Prec@1(avg) 1.88 % | Prec@5(avg) 6.41 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 810/1563] | Time(avg): 5.15 | Speed: (pics/sec):  1591
+Learning rate: 0.08000000 | Curr loss: 5.8706 | Avg loss: 6.3836 | Prec@1(avg) 1.90 % | Prec@5(avg) 6.50 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 820/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1590
+Learning rate: 0.08000000 | Curr loss: 5.9176 | Avg loss: 6.3775 | Prec@1(avg) 1.94 % | Prec@5(avg) 6.58 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 830/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1590
+Learning rate: 0.08000000 | Curr loss: 5.8963 | Avg loss: 6.3715 | Prec@1(avg) 1.97 % | Prec@5(avg) 6.66 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 840/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1590
+Learning rate: 0.08000000 | Curr loss: 5.8694 | Avg loss: 6.3654 | Prec@1(avg) 1.99 % | Prec@5(avg) 6.75 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 850/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1590
+Learning rate: 0.08000000 | Curr loss: 5.8325 | Avg loss: 6.3595 | Prec@1(avg) 2.02 % | Prec@5(avg) 6.83 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 860/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1590
+Learning rate: 0.08000000 | Curr loss: 5.8058 | Avg loss: 6.3536 | Prec@1(avg) 2.05 % | Prec@5(avg) 6.91 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 870/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1589
+Learning rate: 0.08000000 | Curr loss: 5.7717 | Avg loss: 6.3476 | Prec@1(avg) 2.08 % | Prec@5(avg) 6.99 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 880/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1589
+Learning rate: 0.08000000 | Curr loss: 5.7866 | Avg loss: 6.3418 | Prec@1(avg) 2.11 % | Prec@5(avg) 7.08 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 890/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1589
+Learning rate: 0.08000000 | Curr loss: 5.8901 | Avg loss: 6.3361 | Prec@1(avg) 2.14 % | Prec@5(avg) 7.16 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 900/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1589
+Learning rate: 0.08000000 | Curr loss: 5.8562 | Avg loss: 6.3306 | Prec@1(avg) 2.17 % | Prec@5(avg) 7.23 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 910/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1589
+Learning rate: 0.08000000 | Curr loss: 5.8784 | Avg loss: 6.3250 | Prec@1(avg) 2.20 % | Prec@5(avg) 7.31 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 920/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1588
+Learning rate: 0.08000000 | Curr loss: 5.7116 | Avg loss: 6.3195 | Prec@1(avg) 2.22 % | Prec@5(avg) 7.40 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 930/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1588
+Learning rate: 0.08000000 | Curr loss: 5.8156 | Avg loss: 6.3138 | Prec@1(avg) 2.25 % | Prec@5(avg) 7.48 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 940/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1588
+Learning rate: 0.08000000 | Curr loss: 5.7239 | Avg loss: 6.3083 | Prec@1(avg) 2.29 % | Prec@5(avg) 7.56 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 950/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1588
+Learning rate: 0.08000000 | Curr loss: 5.7263 | Avg loss: 6.3027 | Prec@1(avg) 2.31 % | Prec@5(avg) 7.63 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 960/1563] | Time(avg): 5.16 | Speed: (pics/sec):  1588
+Learning rate: 0.08000000 | Curr loss: 5.7674 | Avg loss: 6.2973 | Prec@1(avg) 2.34 % | Prec@5(avg) 7.72 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 970/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.8132 | Avg loss: 6.2918 | Prec@1(avg) 2.37 % | Prec@5(avg) 7.80 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 980/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.7567 | Avg loss: 6.2863 | Prec@1(avg) 2.41 % | Prec@5(avg) 7.89 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 990/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.7653 | Avg loss: 6.2808 | Prec@1(avg) 2.44 % | Prec@5(avg) 7.97 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1000/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.7977 | Avg loss: 6.2752 | Prec@1(avg) 2.47 % | Prec@5(avg) 8.06 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1010/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.7937 | Avg loss: 6.2698 | Prec@1(avg) 2.50 % | Prec@5(avg) 8.14 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1020/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.7063 | Avg loss: 6.2645 | Prec@1(avg) 2.54 % | Prec@5(avg) 8.22 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1030/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.6967 | Avg loss: 6.2594 | Prec@1(avg) 2.57 % | Prec@5(avg) 8.30 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1040/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1587
+Learning rate: 0.08000000 | Curr loss: 5.6657 | Avg loss: 6.2540 | Prec@1(avg) 2.60 % | Prec@5(avg) 8.38 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1050/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1586
+Learning rate: 0.08000000 | Curr loss: 5.7901 | Avg loss: 6.2487 | Prec@1(avg) 2.63 % | Prec@5(avg) 8.46 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1060/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1586
+Learning rate: 0.08000000 | Curr loss: 5.6006 | Avg loss: 6.2434 | Prec@1(avg) 2.65 % | Prec@5(avg) 8.53 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1070/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1586
+Learning rate: 0.08000000 | Curr loss: 5.6336 | Avg loss: 6.2384 | Prec@1(avg) 2.68 % | Prec@5(avg) 8.61 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1080/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1586
+Learning rate: 0.08000000 | Curr loss: 5.6719 | Avg loss: 6.2336 | Prec@1(avg) 2.71 % | Prec@5(avg) 8.68 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1090/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1586
+Learning rate: 0.08000000 | Curr loss: 5.7072 | Avg loss: 6.2285 | Prec@1(avg) 2.74 % | Prec@5(avg) 8.75 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1100/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6343 | Avg loss: 6.2234 | Prec@1(avg) 2.77 % | Prec@5(avg) 8.83 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1110/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.5425 | Avg loss: 6.2184 | Prec@1(avg) 2.80 % | Prec@5(avg) 8.91 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1120/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6478 | Avg loss: 6.2131 | Prec@1(avg) 2.83 % | Prec@5(avg) 9.00 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1130/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.5823 | Avg loss: 6.2080 | Prec@1(avg) 2.86 % | Prec@5(avg) 9.08 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1140/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.5564 | Avg loss: 6.2032 | Prec@1(avg) 2.89 % | Prec@5(avg) 9.15 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1150/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6892 | Avg loss: 6.1983 | Prec@1(avg) 2.92 % | Prec@5(avg) 9.23 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1160/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6316 | Avg loss: 6.1934 | Prec@1(avg) 2.95 % | Prec@5(avg) 9.31 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1170/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6525 | Avg loss: 6.1884 | Prec@1(avg) 2.98 % | Prec@5(avg) 9.39 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1180/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6051 | Avg loss: 6.1836 | Prec@1(avg) 3.01 % | Prec@5(avg) 9.47 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1190/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.5308 | Avg loss: 6.1788 | Prec@1(avg) 3.05 % | Prec@5(avg) 9.55 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1200/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.7220 | Avg loss: 6.1738 | Prec@1(avg) 3.08 % | Prec@5(avg) 9.63 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1210/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.5982 | Avg loss: 6.1690 | Prec@1(avg) 3.12 % | Prec@5(avg) 9.72 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1220/1563] | Time(avg): 5.17 | Speed: (pics/sec):  1585
+Learning rate: 0.08000000 | Curr loss: 5.6043 | Avg loss: 6.1642 | Prec@1(avg) 3.15 % | Prec@5(avg) 9.80 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1230/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.5418 | Avg loss: 6.1594 | Prec@1(avg) 3.18 % | Prec@5(avg) 9.88 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1240/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.5982 | Avg loss: 6.1548 | Prec@1(avg) 3.22 % | Prec@5(avg) 9.95 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1250/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.4775 | Avg loss: 6.1502 | Prec@1(avg) 3.25 % | Prec@5(avg) 10.03 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1260/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.5820 | Avg loss: 6.1455 | Prec@1(avg) 3.28 % | Prec@5(avg) 10.11 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1270/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.5272 | Avg loss: 6.1407 | Prec@1(avg) 3.31 % | Prec@5(avg) 10.19 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1280/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5407 | Avg loss: 6.1362 | Prec@1(avg) 3.35 % | Prec@5(avg) 10.26 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1290/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4789 | Avg loss: 6.1316 | Prec@1(avg) 3.38 % | Prec@5(avg) 10.35 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1300/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1584
+Learning rate: 0.08000000 | Curr loss: 5.5563 | Avg loss: 6.1271 | Prec@1(avg) 3.41 % | Prec@5(avg) 10.42 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1310/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5176 | Avg loss: 6.1227 | Prec@1(avg) 3.44 % | Prec@5(avg) 10.50 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1320/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4818 | Avg loss: 6.1180 | Prec@1(avg) 3.47 % | Prec@5(avg) 10.58 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1330/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5322 | Avg loss: 6.1136 | Prec@1(avg) 3.51 % | Prec@5(avg) 10.66 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1340/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4779 | Avg loss: 6.1092 | Prec@1(avg) 3.54 % | Prec@5(avg) 10.74 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1350/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5159 | Avg loss: 6.1048 | Prec@1(avg) 3.56 % | Prec@5(avg) 10.81 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1360/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5669 | Avg loss: 6.1005 | Prec@1(avg) 3.59 % | Prec@5(avg) 10.89 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1370/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4690 | Avg loss: 6.0961 | Prec@1(avg) 3.63 % | Prec@5(avg) 10.96 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1380/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4653 | Avg loss: 6.0919 | Prec@1(avg) 3.66 % | Prec@5(avg) 11.04 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1390/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4533 | Avg loss: 6.0875 | Prec@1(avg) 3.69 % | Prec@5(avg) 11.11 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1400/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4149 | Avg loss: 6.0831 | Prec@1(avg) 3.72 % | Prec@5(avg) 11.19 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1410/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4756 | Avg loss: 6.0787 | Prec@1(avg) 3.75 % | Prec@5(avg) 11.26 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1420/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3943 | Avg loss: 6.0743 | Prec@1(avg) 3.78 % | Prec@5(avg) 11.34 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1430/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4567 | Avg loss: 6.0700 | Prec@1(avg) 3.81 % | Prec@5(avg) 11.41 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1440/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.5098 | Avg loss: 6.0655 | Prec@1(avg) 3.84 % | Prec@5(avg) 11.49 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1450/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3926 | Avg loss: 6.0611 | Prec@1(avg) 3.88 % | Prec@5(avg) 11.57 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1460/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1582
+Learning rate: 0.08000000 | Curr loss: 5.4932 | Avg loss: 6.0568 | Prec@1(avg) 3.91 % | Prec@5(avg) 11.64 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1470/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1582
+Learning rate: 0.08000000 | Curr loss: 5.3650 | Avg loss: 6.0525 | Prec@1(avg) 3.94 % | Prec@5(avg) 11.72 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1480/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1582
+Learning rate: 0.08000000 | Curr loss: 5.3589 | Avg loss: 6.0482 | Prec@1(avg) 3.97 % | Prec@5(avg) 11.80 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1490/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1582
+Learning rate: 0.08000000 | Curr loss: 5.3513 | Avg loss: 6.0440 | Prec@1(avg) 4.00 % | Prec@5(avg) 11.87 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1500/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4095 | Avg loss: 6.0398 | Prec@1(avg) 4.04 % | Prec@5(avg) 11.94 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1510/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3551 | Avg loss: 6.0356 | Prec@1(avg) 4.07 % | Prec@5(avg) 12.02 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1520/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3424 | Avg loss: 6.0315 | Prec@1(avg) 4.10 % | Prec@5(avg) 12.09 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1530/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4652 | Avg loss: 6.0274 | Prec@1(avg) 4.13 % | Prec@5(avg) 12.17 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1540/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.4097 | Avg loss: 6.0231 | Prec@1(avg) 4.17 % | Prec@5(avg) 12.24 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1550/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3563 | Avg loss: 6.0190 | Prec@1(avg) 4.20 % | Prec@5(avg) 12.32 %
+
+Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [1560/1563] | Time(avg): 5.18 | Speed: (pics/sec):  1583
+Learning rate: 0.08000000 | Curr loss: 5.3450 | Avg loss: 6.0149 | Prec@1(avg) 4.23 % | Prec@5(avg) 12.40 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  10/  61] | Time(avg): 30.46 | Speed: (pics/sec):   269
+Curr loss: 5.1346 | Avg loss: 5.1858 | Prec@1(avg) 11.09 % | Prec@5(avg) 27.23 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  20/  61] | Time(avg): 19.48 | Speed: (pics/sec):   421
+Curr loss: 5.1945 | Avg loss: 5.1965 | Prec@1(avg) 11.09 % | Prec@5(avg) 27.12 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  30/  61] | Time(avg): 17.56 | Speed: (pics/sec):   467
+Curr loss: 5.2087 | Avg loss: 5.1960 | Prec@1(avg) 11.16 % | Prec@5(avg) 27.25 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  40/  61] | Time(avg): 14.69 | Speed: (pics/sec):   558
+Curr loss: 5.1989 | Avg loss: 5.1930 | Prec@1(avg) 11.03 % | Prec@5(avg) 27.18 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  50/  61] | Time(avg): 12.94 | Speed: (pics/sec):   634
+Curr loss: 5.2420 | Avg loss: 5.1935 | Prec@1(avg) 10.95 % | Prec@5(avg) 27.20 %
+
+Validation | Stg: [ 0/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.52 %
+Epoch: [ 1/ 1] | Seen data: [  60/  61] | Time(avg): 11.75 | Speed: (pics/sec):   698
+Curr loss: 5.2037 | Avg loss: 5.1906 | Prec@1(avg) 10.95 % | Prec@5(avg) 27.31 %
+
+features_0_0_weight              | nonzeros =     864 /     864 (100.00%) | total_pruned =       0 | shape = (32, 3, 3, 3)
+features_0_1_weight              | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_0_1_bias                | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_1_conv_0_0_weight       | nonzeros =     288 /     288 (100.00%) | total_pruned =       0 | shape = (32, 1, 3, 3)
+features_1_conv_0_1_weight       | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_1_conv_0_1_bias         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_1_conv_1_weight         | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (16, 32, 1, 1)
+features_1_conv_2_weight         | nonzeros =      16 /      16 (100.00%) | total_pruned =       0 | shape = (16)
+features_1_conv_2_bias           | nonzeros =      16 /      16 (100.00%) | total_pruned =       0 | shape = (16)
+features_2_conv_0_0_weight       | nonzeros =    1536 /    1536 (100.00%) | total_pruned =       0 | shape = (96, 16, 1, 1)
+features_2_conv_0_1_weight       | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_0_1_bias         | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_1_0_weight       | nonzeros =     864 /     864 (100.00%) | total_pruned =       0 | shape = (96, 1, 3, 3)
+features_2_conv_1_1_weight       | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_1_1_bias         | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_2_conv_2_weight         | nonzeros =    2304 /    2304 (100.00%) | total_pruned =       0 | shape = (24, 96, 1, 1)
+features_2_conv_3_weight         | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_2_conv_3_bias           | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_3_conv_0_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (144, 24, 1, 1)
+features_3_conv_0_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_0_1_bias         | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_1_0_weight       | nonzeros =    1296 /    1296 (100.00%) | total_pruned =       0 | shape = (144, 1, 3, 3)
+features_3_conv_1_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_1_1_bias         | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_3_conv_2_weight         | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (24, 144, 1, 1)
+features_3_conv_3_weight         | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_3_conv_3_bias           | nonzeros =      24 /      24 (100.00%) | total_pruned =       0 | shape = (24)
+features_4_conv_0_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (144, 24, 1, 1)
+features_4_conv_0_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_0_1_bias         | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_1_0_weight       | nonzeros =    1296 /    1296 (100.00%) | total_pruned =       0 | shape = (144, 1, 3, 3)
+features_4_conv_1_1_weight       | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_1_1_bias         | nonzeros =     144 /     144 (100.00%) | total_pruned =       0 | shape = (144)
+features_4_conv_2_weight         | nonzeros =    4608 /    4608 (100.00%) | total_pruned =       0 | shape = (32, 144, 1, 1)
+features_4_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_4_conv_3_bias           | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_5_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_5_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_0_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_5_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_1_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_5_conv_2_weight         | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (32, 192, 1, 1)
+features_5_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_5_conv_3_bias           | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_6_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_6_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_0_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_6_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_1_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_6_conv_2_weight         | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (32, 192, 1, 1)
+features_6_conv_3_weight         | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_6_conv_3_bias           | nonzeros =      32 /      32 (100.00%) | total_pruned =       0 | shape = (32)
+features_7_conv_0_0_weight       | nonzeros =    6144 /    6144 (100.00%) | total_pruned =       0 | shape = (192, 32, 1, 1)
+features_7_conv_0_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_0_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_1_0_weight       | nonzeros =    1728 /    1728 (100.00%) | total_pruned =       0 | shape = (192, 1, 3, 3)
+features_7_conv_1_1_weight       | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_1_1_bias         | nonzeros =     192 /     192 (100.00%) | total_pruned =       0 | shape = (192)
+features_7_conv_2_weight         | nonzeros =   12288 /   12288 (100.00%) | total_pruned =       0 | shape = (64, 192, 1, 1)
+features_7_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_7_conv_3_bias           | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_8_conv_0_0_weight       | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_8_conv_0_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_0_1_bias         | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_1_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_8_conv_1_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_1_1_bias         | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_8_conv_2_weight         | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_8_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_8_conv_3_bias           | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_9_conv_0_0_weight       | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_9_conv_0_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_0_1_bias         | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_1_0_weight       | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_9_conv_1_1_weight       | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_1_1_bias         | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_9_conv_2_weight         | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_9_conv_3_weight         | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_9_conv_3_bias           | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_10_conv_0_0_weight      | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_10_conv_0_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_0_1_bias        | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_1_0_weight      | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_10_conv_1_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_1_1_bias        | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_10_conv_2_weight        | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (64, 384, 1, 1)
+features_10_conv_3_weight        | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_10_conv_3_bias          | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+features_11_conv_0_0_weight      | nonzeros =   24576 /   24576 (100.00%) | total_pruned =       0 | shape = (384, 64, 1, 1)
+features_11_conv_0_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_0_1_bias        | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_1_0_weight      | nonzeros =    3456 /    3456 (100.00%) | total_pruned =       0 | shape = (384, 1, 3, 3)
+features_11_conv_1_1_weight      | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_1_1_bias        | nonzeros =     384 /     384 (100.00%) | total_pruned =       0 | shape = (384)
+features_11_conv_2_weight        | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (96, 384, 1, 1)
+features_11_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_11_conv_3_bias          | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_12_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_12_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_0_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_12_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_1_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_12_conv_2_weight        | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (96, 576, 1, 1)
+features_12_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_12_conv_3_bias          | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_13_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_13_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_0_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_13_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_1_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_13_conv_2_weight        | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (96, 576, 1, 1)
+features_13_conv_3_weight        | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_13_conv_3_bias          | nonzeros =      96 /      96 (100.00%) | total_pruned =       0 | shape = (96)
+features_14_conv_0_0_weight      | nonzeros =   55296 /   55296 (100.00%) | total_pruned =       0 | shape = (576, 96, 1, 1)
+features_14_conv_0_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_0_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_1_0_weight      | nonzeros =    5184 /    5184 (100.00%) | total_pruned =       0 | shape = (576, 1, 3, 3)
+features_14_conv_1_1_weight      | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_1_1_bias        | nonzeros =     576 /     576 (100.00%) | total_pruned =       0 | shape = (576)
+features_14_conv_2_weight        | nonzeros =   92160 /   92160 (100.00%) | total_pruned =       0 | shape = (160, 576, 1, 1)
+features_14_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_14_conv_3_bias          | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_15_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_15_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_0_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_15_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_1_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_15_conv_2_weight        | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (160, 960, 1, 1)
+features_15_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_15_conv_3_bias          | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_16_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_16_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_0_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_16_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_1_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_16_conv_2_weight        | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (160, 960, 1, 1)
+features_16_conv_3_weight        | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_16_conv_3_bias          | nonzeros =     160 /     160 (100.00%) | total_pruned =       0 | shape = (160)
+features_17_conv_0_0_weight      | nonzeros =  153600 /  153600 (100.00%) | total_pruned =       0 | shape = (960, 160, 1, 1)
+features_17_conv_0_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_0_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_1_0_weight      | nonzeros =    8640 /    8640 (100.00%) | total_pruned =       0 | shape = (960, 1, 3, 3)
+features_17_conv_1_1_weight      | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_1_1_bias        | nonzeros =     960 /     960 (100.00%) | total_pruned =       0 | shape = (960)
+features_17_conv_2_weight        | nonzeros =  307200 /  307200 (100.00%) | total_pruned =       0 | shape = (320, 960, 1, 1)
+features_17_conv_3_weight        | nonzeros =     320 /     320 (100.00%) | total_pruned =       0 | shape = (320)
+features_17_conv_3_bias          | nonzeros =     320 /     320 (100.00%) | total_pruned =       0 | shape = (320)
+features_18_0_weight             | nonzeros =  409600 /  409600 (100.00%) | total_pruned =       0 | shape = (1280, 320, 1, 1)
+features_18_1_weight             | nonzeros =    1280 /    1280 (100.00%) | total_pruned =       0 | shape = (1280)
+features_18_1_bias               | nonzeros =    1280 /    1280 (100.00%) | total_pruned =       0 | shape = (1280)
+classifier_1_weight              | nonzeros = 1280000 / 1280000 (100.00%) | total_pruned =       0 | shape = (1000, 1280)
+classifier_1_bias                | nonzeros =    1000 /    1000 (100.00%) | total_pruned =       0 | shape = (1000)
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Nonz: 3504872 | Pruned: 0 | Total: 3504872 | Comp:  1.00x  (0.00% pruned)
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  10/1563] | Time(avg): 10.89 | Speed: (pics/sec):   753
+Learning rate: 0.16000000 | Curr loss: 5.3982 | Avg loss: 5.4369 | Prec@1(avg) 8.07 % | Prec@5(avg) 22.20 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  20/1563] | Time(avg): 7.87 | Speed: (pics/sec):  1042
+Learning rate: 0.16000000 | Curr loss: 5.5187 | Avg loss: 5.4469 | Prec@1(avg) 8.40 % | Prec@5(avg) 22.15 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  30/1563] | Time(avg): 6.91 | Speed: (pics/sec):  1186
+Learning rate: 0.16000000 | Curr loss: 5.4120 | Avg loss: 5.4481 | Prec@1(avg) 8.40 % | Prec@5(avg) 22.11 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  40/1563] | Time(avg): 6.48 | Speed: (pics/sec):  1266
+Learning rate: 0.16000000 | Curr loss: 5.4688 | Avg loss: 5.4510 | Prec@1(avg) 8.38 % | Prec@5(avg) 22.03 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  50/1563] | Time(avg): 6.24 | Speed: (pics/sec):  1315
+Learning rate: 0.16000000 | Curr loss: 5.4460 | Avg loss: 5.4502 | Prec@1(avg) 8.43 % | Prec@5(avg) 22.17 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  60/1563] | Time(avg): 6.03 | Speed: (pics/sec):  1360
+Learning rate: 0.16000000 | Curr loss: 5.3658 | Avg loss: 5.4460 | Prec@1(avg) 8.42 % | Prec@5(avg) 22.17 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  70/1563] | Time(avg): 5.91 | Speed: (pics/sec):  1387
+Learning rate: 0.16000000 | Curr loss: 5.4660 | Avg loss: 5.4481 | Prec@1(avg) 8.40 % | Prec@5(avg) 22.17 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  80/1563] | Time(avg): 5.83 | Speed: (pics/sec):  1407
+Learning rate: 0.16000000 | Curr loss: 5.3688 | Avg loss: 5.4442 | Prec@1(avg) 8.40 % | Prec@5(avg) 22.23 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [  90/1563] | Time(avg): 5.76 | Speed: (pics/sec):  1424
+Learning rate: 0.16000000 | Curr loss: 5.4298 | Avg loss: 5.4426 | Prec@1(avg) 8.43 % | Prec@5(avg) 22.26 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 100/1563] | Time(avg): 5.70 | Speed: (pics/sec):  1438
+Learning rate: 0.16000000 | Curr loss: 5.4064 | Avg loss: 5.4409 | Prec@1(avg) 8.44 % | Prec@5(avg) 22.29 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 110/1563] | Time(avg): 5.65 | Speed: (pics/sec):  1451
+Learning rate: 0.16000000 | Curr loss: 5.4002 | Avg loss: 5.4360 | Prec@1(avg) 8.46 % | Prec@5(avg) 22.40 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 120/1563] | Time(avg): 5.62 | Speed: (pics/sec):  1460
+Learning rate: 0.16000000 | Curr loss: 5.3846 | Avg loss: 5.4297 | Prec@1(avg) 8.52 % | Prec@5(avg) 22.55 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 130/1563] | Time(avg): 5.59 | Speed: (pics/sec):  1468
+Learning rate: 0.16000000 | Curr loss: 5.3369 | Avg loss: 5.4238 | Prec@1(avg) 8.64 % | Prec@5(avg) 22.71 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 140/1563] | Time(avg): 5.57 | Speed: (pics/sec):  1473
+Learning rate: 0.16000000 | Curr loss: 5.3165 | Avg loss: 5.4194 | Prec@1(avg) 8.67 % | Prec@5(avg) 22.75 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 150/1563] | Time(avg): 5.54 | Speed: (pics/sec):  1481
+Learning rate: 0.16000000 | Curr loss: 5.3295 | Avg loss: 5.4124 | Prec@1(avg) 8.74 % | Prec@5(avg) 22.95 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 160/1563] | Time(avg): 5.51 | Speed: (pics/sec):  1487
+Learning rate: 0.16000000 | Curr loss: 5.3178 | Avg loss: 5.4081 | Prec@1(avg) 8.79 % | Prec@5(avg) 23.06 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 170/1563] | Time(avg): 5.50 | Speed: (pics/sec):  1491
+Learning rate: 0.16000000 | Curr loss: 5.3115 | Avg loss: 5.4039 | Prec@1(avg) 8.85 % | Prec@5(avg) 23.16 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 180/1563] | Time(avg): 5.48 | Speed: (pics/sec):  1497
+Learning rate: 0.16000000 | Curr loss: 5.3453 | Avg loss: 5.3985 | Prec@1(avg) 8.92 % | Prec@5(avg) 23.26 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 190/1563] | Time(avg): 5.46 | Speed: (pics/sec):  1500
+Learning rate: 0.16000000 | Curr loss: 5.3158 | Avg loss: 5.3936 | Prec@1(avg) 8.95 % | Prec@5(avg) 23.35 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 200/1563] | Time(avg): 5.45 | Speed: (pics/sec):  1503
+Learning rate: 0.16000000 | Curr loss: 5.2932 | Avg loss: 5.3885 | Prec@1(avg) 9.01 % | Prec@5(avg) 23.47 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 210/1563] | Time(avg): 5.45 | Speed: (pics/sec):  1506
+Learning rate: 0.16000000 | Curr loss: 5.3262 | Avg loss: 5.3831 | Prec@1(avg) 9.07 % | Prec@5(avg) 23.58 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 220/1563] | Time(avg): 5.44 | Speed: (pics/sec):  1509
+Learning rate: 0.16000000 | Curr loss: 5.3144 | Avg loss: 5.3786 | Prec@1(avg) 9.15 % | Prec@5(avg) 23.71 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 230/1563] | Time(avg): 5.42 | Speed: (pics/sec):  1512
+Learning rate: 0.16000000 | Curr loss: 5.2613 | Avg loss: 5.3755 | Prec@1(avg) 9.16 % | Prec@5(avg) 23.75 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 240/1563] | Time(avg): 5.41 | Speed: (pics/sec):  1515
+Learning rate: 0.16000000 | Curr loss: 5.1641 | Avg loss: 5.3709 | Prec@1(avg) 9.23 % | Prec@5(avg) 23.88 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 250/1563] | Time(avg): 5.40 | Speed: (pics/sec):  1518
+Learning rate: 0.16000000 | Curr loss: 5.2717 | Avg loss: 5.3671 | Prec@1(avg) 9.26 % | Prec@5(avg) 23.97 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 260/1563] | Time(avg): 5.39 | Speed: (pics/sec):  1521
+Learning rate: 0.16000000 | Curr loss: 5.2850 | Avg loss: 5.3629 | Prec@1(avg) 9.30 % | Prec@5(avg) 24.07 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 270/1563] | Time(avg): 5.39 | Speed: (pics/sec):  1522
+Learning rate: 0.16000000 | Curr loss: 5.2018 | Avg loss: 5.3580 | Prec@1(avg) 9.37 % | Prec@5(avg) 24.17 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 280/1563] | Time(avg): 5.38 | Speed: (pics/sec):  1523
+Learning rate: 0.16000000 | Curr loss: 5.1476 | Avg loss: 5.3537 | Prec@1(avg) 9.44 % | Prec@5(avg) 24.29 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 290/1563] | Time(avg): 5.38 | Speed: (pics/sec):  1525
+Learning rate: 0.16000000 | Curr loss: 5.1426 | Avg loss: 5.3489 | Prec@1(avg) 9.51 % | Prec@5(avg) 24.42 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 300/1563] | Time(avg): 5.37 | Speed: (pics/sec):  1526
+Learning rate: 0.16000000 | Curr loss: 5.1377 | Avg loss: 5.3442 | Prec@1(avg) 9.57 % | Prec@5(avg) 24.54 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 310/1563] | Time(avg): 5.37 | Speed: (pics/sec):  1528
+Learning rate: 0.16000000 | Curr loss: 5.1851 | Avg loss: 5.3392 | Prec@1(avg) 9.62 % | Prec@5(avg) 24.64 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 320/1563] | Time(avg): 5.36 | Speed: (pics/sec):  1529
+Learning rate: 0.16000000 | Curr loss: 5.1980 | Avg loss: 5.3349 | Prec@1(avg) 9.68 % | Prec@5(avg) 24.73 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 330/1563] | Time(avg): 5.36 | Speed: (pics/sec):  1531
+Learning rate: 0.16000000 | Curr loss: 5.2364 | Avg loss: 5.3305 | Prec@1(avg) 9.71 % | Prec@5(avg) 24.81 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 340/1563] | Time(avg): 5.35 | Speed: (pics/sec):  1532
+Learning rate: 0.16000000 | Curr loss: 5.1367 | Avg loss: 5.3263 | Prec@1(avg) 9.78 % | Prec@5(avg) 24.92 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 350/1563] | Time(avg): 5.35 | Speed: (pics/sec):  1533
+Learning rate: 0.16000000 | Curr loss: 5.1826 | Avg loss: 5.3224 | Prec@1(avg) 9.84 % | Prec@5(avg) 25.01 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 360/1563] | Time(avg): 5.35 | Speed: (pics/sec):  1534
+Learning rate: 0.16000000 | Curr loss: 5.0981 | Avg loss: 5.3178 | Prec@1(avg) 9.89 % | Prec@5(avg) 25.12 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 370/1563] | Time(avg): 5.34 | Speed: (pics/sec):  1535
+Learning rate: 0.16000000 | Curr loss: 5.1776 | Avg loss: 5.3133 | Prec@1(avg) 9.96 % | Prec@5(avg) 25.21 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 380/1563] | Time(avg): 5.34 | Speed: (pics/sec):  1536
+Learning rate: 0.16000000 | Curr loss: 5.2915 | Avg loss: 5.3090 | Prec@1(avg) 10.00 % | Prec@5(avg) 25.31 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 390/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1537
+Learning rate: 0.16000000 | Curr loss: 5.1501 | Avg loss: 5.3054 | Prec@1(avg) 10.06 % | Prec@5(avg) 25.38 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 400/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1537
+Learning rate: 0.16000000 | Curr loss: 5.1293 | Avg loss: 5.3017 | Prec@1(avg) 10.09 % | Prec@5(avg) 25.47 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 410/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1538
+Learning rate: 0.16000000 | Curr loss: 5.0954 | Avg loss: 5.2967 | Prec@1(avg) 10.15 % | Prec@5(avg) 25.58 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 420/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1538
+Learning rate: 0.16000000 | Curr loss: 5.1068 | Avg loss: 5.2928 | Prec@1(avg) 10.20 % | Prec@5(avg) 25.67 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 430/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1539
+Learning rate: 0.16000000 | Curr loss: 5.0840 | Avg loss: 5.2884 | Prec@1(avg) 10.26 % | Prec@5(avg) 25.77 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 440/1563] | Time(avg): 5.33 | Speed: (pics/sec):  1540
+Learning rate: 0.16000000 | Curr loss: 5.1170 | Avg loss: 5.2845 | Prec@1(avg) 10.29 % | Prec@5(avg) 25.86 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 450/1563] | Time(avg): 5.32 | Speed: (pics/sec):  1540
+Learning rate: 0.16000000 | Curr loss: 5.1187 | Avg loss: 5.2817 | Prec@1(avg) 10.33 % | Prec@5(avg) 25.93 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 460/1563] | Time(avg): 5.32 | Speed: (pics/sec):  1542
+Learning rate: 0.16000000 | Curr loss: 5.1158 | Avg loss: 5.2781 | Prec@1(avg) 10.37 % | Prec@5(avg) 26.01 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 470/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1543
+Learning rate: 0.16000000 | Curr loss: 5.0509 | Avg loss: 5.2736 | Prec@1(avg) 10.43 % | Prec@5(avg) 26.11 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 480/1563] | Time(avg): 5.32 | Speed: (pics/sec):  1542
+Learning rate: 0.16000000 | Curr loss: 5.1213 | Avg loss: 5.2705 | Prec@1(avg) 10.46 % | Prec@5(avg) 26.18 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 490/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1543
+Learning rate: 0.16000000 | Curr loss: 5.0340 | Avg loss: 5.2664 | Prec@1(avg) 10.51 % | Prec@5(avg) 26.28 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 500/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1544
+Learning rate: 0.16000000 | Curr loss: 4.9998 | Avg loss: 5.2635 | Prec@1(avg) 10.55 % | Prec@5(avg) 26.36 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 510/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1544
+Learning rate: 0.16000000 | Curr loss: 5.0046 | Avg loss: 5.2593 | Prec@1(avg) 10.60 % | Prec@5(avg) 26.45 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 520/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1544
+Learning rate: 0.16000000 | Curr loss: 5.0179 | Avg loss: 5.2550 | Prec@1(avg) 10.65 % | Prec@5(avg) 26.56 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 530/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1545
+Learning rate: 0.16000000 | Curr loss: 5.0319 | Avg loss: 5.2515 | Prec@1(avg) 10.69 % | Prec@5(avg) 26.64 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 540/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1545
+Learning rate: 0.16000000 | Curr loss: 5.0669 | Avg loss: 5.2484 | Prec@1(avg) 10.73 % | Prec@5(avg) 26.72 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 550/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1545
+Learning rate: 0.16000000 | Curr loss: 4.9973 | Avg loss: 5.2447 | Prec@1(avg) 10.79 % | Prec@5(avg) 26.81 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 560/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1546
+Learning rate: 0.16000000 | Curr loss: 5.0741 | Avg loss: 5.2408 | Prec@1(avg) 10.84 % | Prec@5(avg) 26.90 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 570/1563] | Time(avg): 5.31 | Speed: (pics/sec):  1545
+Learning rate: 0.16000000 | Curr loss: 4.9815 | Avg loss: 5.2374 | Prec@1(avg) 10.88 % | Prec@5(avg) 26.98 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 580/1563] | Time(avg): 5.30 | Speed: (pics/sec):  1547
+Learning rate: 0.16000000 | Curr loss: 4.9247 | Avg loss: 5.2332 | Prec@1(avg) 10.94 % | Prec@5(avg) 27.08 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 590/1563] | Time(avg): 5.30 | Speed: (pics/sec):  1547
+Learning rate: 0.16000000 | Curr loss: 4.9458 | Avg loss: 5.2292 | Prec@1(avg) 11.00 % | Prec@5(avg) 27.17 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 600/1563] | Time(avg): 5.30 | Speed: (pics/sec):  1548
+Learning rate: 0.16000000 | Curr loss: 4.9603 | Avg loss: 5.2257 | Prec@1(avg) 11.05 % | Prec@5(avg) 27.26 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 610/1563] | Time(avg): 5.30 | Speed: (pics/sec):  1548
+Learning rate: 0.16000000 | Curr loss: 5.0046 | Avg loss: 5.2223 | Prec@1(avg) 11.09 % | Prec@5(avg) 27.33 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 620/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9020 | Avg loss: 5.2188 | Prec@1(avg) 11.14 % | Prec@5(avg) 27.41 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 630/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9612 | Avg loss: 5.2151 | Prec@1(avg) 11.18 % | Prec@5(avg) 27.50 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 640/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 5.0095 | Avg loss: 5.2115 | Prec@1(avg) 11.23 % | Prec@5(avg) 27.58 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 650/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9821 | Avg loss: 5.2086 | Prec@1(avg) 11.27 % | Prec@5(avg) 27.65 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 660/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 5.0045 | Avg loss: 5.2053 | Prec@1(avg) 11.31 % | Prec@5(avg) 27.71 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 670/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9812 | Avg loss: 5.2019 | Prec@1(avg) 11.36 % | Prec@5(avg) 27.79 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 680/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 5.0020 | Avg loss: 5.1988 | Prec@1(avg) 11.41 % | Prec@5(avg) 27.86 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 690/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9571 | Avg loss: 5.1955 | Prec@1(avg) 11.46 % | Prec@5(avg) 27.94 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 700/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9016 | Avg loss: 5.1922 | Prec@1(avg) 11.49 % | Prec@5(avg) 28.02 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 710/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 4.9846 | Avg loss: 5.1888 | Prec@1(avg) 11.55 % | Prec@5(avg) 28.10 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 720/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1549
+Learning rate: 0.16000000 | Curr loss: 5.0410 | Avg loss: 5.1856 | Prec@1(avg) 11.59 % | Prec@5(avg) 28.18 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 730/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1550
+Learning rate: 0.16000000 | Curr loss: 4.8137 | Avg loss: 5.1820 | Prec@1(avg) 11.64 % | Prec@5(avg) 28.26 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 740/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1550
+Learning rate: 0.16000000 | Curr loss: 4.9375 | Avg loss: 5.1787 | Prec@1(avg) 11.67 % | Prec@5(avg) 28.34 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 750/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1551
+Learning rate: 0.16000000 | Curr loss: 4.9885 | Avg loss: 5.1755 | Prec@1(avg) 11.72 % | Prec@5(avg) 28.42 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 760/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1551
+Learning rate: 0.16000000 | Curr loss: 4.9841 | Avg loss: 5.1721 | Prec@1(avg) 11.76 % | Prec@5(avg) 28.50 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 770/1563] | Time(avg): 5.29 | Speed: (pics/sec):  1551
+Learning rate: 0.16000000 | Curr loss: 4.8646 | Avg loss: 5.1689 | Prec@1(avg) 11.80 % | Prec@5(avg) 28.57 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 780/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1552
+Learning rate: 0.16000000 | Curr loss: 4.9680 | Avg loss: 5.1656 | Prec@1(avg) 11.84 % | Prec@5(avg) 28.65 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 790/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1552
+Learning rate: 0.16000000 | Curr loss: 4.8924 | Avg loss: 5.1624 | Prec@1(avg) 11.88 % | Prec@5(avg) 28.72 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 800/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1552
+Learning rate: 0.16000000 | Curr loss: 4.8797 | Avg loss: 5.1590 | Prec@1(avg) 11.94 % | Prec@5(avg) 28.80 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 810/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1553
+Learning rate: 0.16000000 | Curr loss: 4.8777 | Avg loss: 5.1555 | Prec@1(avg) 11.99 % | Prec@5(avg) 28.89 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 820/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1553
+Learning rate: 0.16000000 | Curr loss: 4.9580 | Avg loss: 5.1522 | Prec@1(avg) 12.03 % | Prec@5(avg) 28.96 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 830/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1554
+Learning rate: 0.16000000 | Curr loss: 4.8917 | Avg loss: 5.1492 | Prec@1(avg) 12.07 % | Prec@5(avg) 29.04 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 840/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1553
+Learning rate: 0.16000000 | Curr loss: 4.8524 | Avg loss: 5.1460 | Prec@1(avg) 12.11 % | Prec@5(avg) 29.12 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 850/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1554
+Learning rate: 0.16000000 | Curr loss: 4.9300 | Avg loss: 5.1426 | Prec@1(avg) 12.16 % | Prec@5(avg) 29.19 %
+
+Stg: [ 1/150] | Pruning Stg: [ 0/ 0] | Zero params: 0.00 %
+Num of GPUs: 4 | Epoch: [ 1/ 1] | [ 860/1563] | Time(avg): 5.28 | Speed: (pics/sec):  1554
+Learning rate: 0.16000000 | Curr loss: 4.8634 | Avg loss: 5.1395 | Prec@1(avg) 12.20 % | Prec@5(avg) 29.26 %
+

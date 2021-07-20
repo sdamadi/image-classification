@@ -4,9 +4,8 @@ import torch
 
 class Outputwriter(object):
 
-    def __init__(self, model, poda, traval, writer, args, curr_scen_name):
+    def __init__(self, model, traval, writer, args, curr_scen_name):
         self.model = model
-        self.poda = poda
         self.traval = traval
         self.writer = writer
         self.args = args
@@ -22,7 +21,6 @@ class Outputwriter(object):
         
         self.golden_stage = 0
         self.best_loss_val, self.best_top1, self.best_top5  = -np.log(np.exp(1/1000)), 0, 0
-        self.best_pruned = self.poda.pruned
         
         self.GradNorm, self.GradDot, self.delta2 = [] , [], []
         self.Best_Stage, self.Best_Val_Loss, self.Best_Val_Acc, self.Best_Percent = ([] for i in range(4) )
@@ -40,15 +38,7 @@ class Outputwriter(object):
             self.writer.add_histogram('Initializations/Layer:'+ name, weight, 1)
             new_name = name.replace('.','_').replace('module_', '')
                       
-
-    def threshold(self, stage): 
-        if self.args.local_rank == 0:
-            if self.args.pruning_strategy in {'asni', 'lottery'}: 
-                self.writer.add_scalar('Pruning/Global Threshold', self.poda.global_threshold, stage)
-                self.Global_Threshold.append(self.poda.global_threshold)
-                self.writer.add_scalar('Pruning/Percentage', self.poda.pruned, stage)
-                self.Prune_Percent.append(self.poda.pruned)
-    
+   
     def net_params(self, stage):
 
         last = self.args.save_stages if stage != (self.args.initial_stage+self.args.stages-1) else True
@@ -59,12 +49,10 @@ class Outputwriter(object):
             if not self.args.prepruned_model: 
                 torch.save(self.model.state_dict(), f'./history/saved/{self.args.dataname}/{self.args.arch}/'\
                         f'saved_at_each_stage_of_pruning/{self.scen_time}/'\
-                        f'pruned_at_stg_{stage}_eta_{100-self.poda.pruned:.1f}'
                         f'_{self.scen_name}.pth.tar')
             elif self.args.prepruned_model:
                 torch.save(self.model.state_dict(), f'./history/saved/{self.args.dataname}/{self.args.arch}/'\
                         f'saved_retrained_prepruned_net_at_each_stage/{self.scen_time}/'\
-                        f'trainedsparse_at_stg_{stage}_eta_{100-self.poda.pruned:.1f}'
                         f'_{self.scen_name}.pth.tar')
         
 

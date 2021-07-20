@@ -1,0 +1,379 @@
+
+========> The following is the setup for this run:
+
+2021_7_20_0_56_29_data_cifar10_arch_conv2_init_kaimingn_GPUs_1_minib_60_opt_Adam_lr_0.0002_lrpolicy_constant_lr_ep_1_strategy_lottery_initstg_0_stg_1
+
+arch: conv2
+pretrained: False
+resume: 
+dataname: cifar10
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 60
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: Adam
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0002
+lr_policy: constant_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: 0
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+initial_stage: 0
+stages: 1
+prepruned_model: False
+quantize_prepruned: False
+quantize_bias: False
+prepruned_scen: 
+pruning_strategy: lottery
+nonpruned_percent: 99.8
+mask_stage: 0
+prune_bn: False
+prune_bias: False
+local_quant: False
+asni_perc_max: 100
+asni_mode: sigmoid
+asni_rest_stage: 1000
+asni_sin_scale: 1
+asni_sin_exponent: 1
+asni_sin_mag: 100
+asni_sigmoid_scale_1: 1
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_mag_1: 100
+asni_sigmoid_scale_2: 1
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_mag_2: 100
+percent: 0
+local_prune: False
+init_threshold: -5
+init_threshold_type: constant
+str_nonlinear: sigmoid
+str_activation: relu
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar10_conv2_train
+logterminal: True
+save_stages: False
+gpu_idx: ['0']
+local_rank: 0
+channels_last: False
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 32704.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+=> The model, i.e., conv2, is being replicated on 1 processes.
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/ 834] | Time(avg): 0.92 | Speed: (pics/sec):   653
+Learning rate: 0.00020000 | Curr loss: 4.7531 | Avg loss: 6.6536 | Prec@1(avg) 12.67 % | Prec@5(avg) 53.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/ 834] | Time(avg): 0.58 | Speed: (pics/sec):  1034
+Learning rate: 0.00020000 | Curr loss: 2.5489 | Avg loss: 4.8756 | Prec@1(avg) 14.08 % | Prec@5(avg) 56.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/ 834] | Time(avg): 0.44 | Speed: (pics/sec):  1358
+Learning rate: 0.00020000 | Curr loss: 2.2401 | Avg loss: 4.0102 | Prec@1(avg) 15.67 % | Prec@5(avg) 59.22 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/ 834] | Time(avg): 0.38 | Speed: (pics/sec):  1571
+Learning rate: 0.00020000 | Curr loss: 2.0987 | Avg loss: 3.5382 | Prec@1(avg) 17.58 % | Prec@5(avg) 61.83 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/ 834] | Time(avg): 0.35 | Speed: (pics/sec):  1702
+Learning rate: 0.00020000 | Curr loss: 2.0843 | Avg loss: 3.2416 | Prec@1(avg) 19.00 % | Prec@5(avg) 64.43 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  60/ 834] | Time(avg): 0.32 | Speed: (pics/sec):  1873
+Learning rate: 0.00020000 | Curr loss: 1.9620 | Avg loss: 3.0362 | Prec@1(avg) 20.42 % | Prec@5(avg) 66.56 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  70/ 834] | Time(avg): 0.32 | Speed: (pics/sec):  1904
+Learning rate: 0.00020000 | Curr loss: 1.9985 | Avg loss: 2.8876 | Prec@1(avg) 21.19 % | Prec@5(avg) 68.43 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  80/ 834] | Time(avg): 0.30 | Speed: (pics/sec):  2015
+Learning rate: 0.00020000 | Curr loss: 1.9263 | Avg loss: 2.7612 | Prec@1(avg) 22.50 % | Prec@5(avg) 70.23 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [  90/ 834] | Time(avg): 0.29 | Speed: (pics/sec):  2092
+Learning rate: 0.00020000 | Curr loss: 2.0094 | Avg loss: 2.6688 | Prec@1(avg) 23.33 % | Prec@5(avg) 71.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 100/ 834] | Time(avg): 0.28 | Speed: (pics/sec):  2134
+Learning rate: 0.00020000 | Curr loss: 1.8463 | Avg loss: 2.5878 | Prec@1(avg) 24.32 % | Prec@5(avg) 72.28 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 110/ 834] | Time(avg): 0.28 | Speed: (pics/sec):  2155
+Learning rate: 0.00020000 | Curr loss: 1.6808 | Avg loss: 2.5197 | Prec@1(avg) 25.12 % | Prec@5(avg) 73.64 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 120/ 834] | Time(avg): 0.27 | Speed: (pics/sec):  2184
+Learning rate: 0.00020000 | Curr loss: 1.7248 | Avg loss: 2.4612 | Prec@1(avg) 25.96 % | Prec@5(avg) 74.54 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 130/ 834] | Time(avg): 0.27 | Speed: (pics/sec):  2191
+Learning rate: 0.00020000 | Curr loss: 1.6988 | Avg loss: 2.4106 | Prec@1(avg) 26.67 % | Prec@5(avg) 75.50 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 140/ 834] | Time(avg): 0.27 | Speed: (pics/sec):  2235
+Learning rate: 0.00020000 | Curr loss: 1.7742 | Avg loss: 2.3685 | Prec@1(avg) 27.08 % | Prec@5(avg) 76.02 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 150/ 834] | Time(avg): 0.27 | Speed: (pics/sec):  2243
+Learning rate: 0.00020000 | Curr loss: 1.8842 | Avg loss: 2.3325 | Prec@1(avg) 27.50 % | Prec@5(avg) 76.53 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 160/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2268
+Learning rate: 0.00020000 | Curr loss: 1.7987 | Avg loss: 2.2976 | Prec@1(avg) 28.25 % | Prec@5(avg) 77.08 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 170/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2301
+Learning rate: 0.00020000 | Curr loss: 2.0712 | Avg loss: 2.2712 | Prec@1(avg) 28.47 % | Prec@5(avg) 77.54 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 180/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2325
+Learning rate: 0.00020000 | Curr loss: 1.6941 | Avg loss: 2.2376 | Prec@1(avg) 29.19 % | Prec@5(avg) 78.20 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 190/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2364
+Learning rate: 0.00020000 | Curr loss: 1.8300 | Avg loss: 2.2125 | Prec@1(avg) 29.60 % | Prec@5(avg) 78.61 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 200/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2350
+Learning rate: 0.00020000 | Curr loss: 1.8055 | Avg loss: 2.1878 | Prec@1(avg) 29.98 % | Prec@5(avg) 79.02 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 210/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2367
+Learning rate: 0.00020000 | Curr loss: 1.8230 | Avg loss: 2.1669 | Prec@1(avg) 30.39 % | Prec@5(avg) 79.36 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 220/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2371
+Learning rate: 0.00020000 | Curr loss: 1.5579 | Avg loss: 2.1459 | Prec@1(avg) 30.80 % | Prec@5(avg) 79.71 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 230/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2403
+Learning rate: 0.00020000 | Curr loss: 1.6715 | Avg loss: 2.1278 | Prec@1(avg) 31.09 % | Prec@5(avg) 79.94 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 240/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2408
+Learning rate: 0.00020000 | Curr loss: 1.7175 | Avg loss: 2.1106 | Prec@1(avg) 31.49 % | Prec@5(avg) 80.23 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 250/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2437
+Learning rate: 0.00020000 | Curr loss: 1.5559 | Avg loss: 2.0916 | Prec@1(avg) 31.77 % | Prec@5(avg) 80.65 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 260/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2434
+Learning rate: 0.00020000 | Curr loss: 1.6884 | Avg loss: 2.0768 | Prec@1(avg) 31.96 % | Prec@5(avg) 80.92 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 270/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2444
+Learning rate: 0.00020000 | Curr loss: 1.5509 | Avg loss: 2.0619 | Prec@1(avg) 32.24 % | Prec@5(avg) 81.12 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 280/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2465
+Learning rate: 0.00020000 | Curr loss: 1.8212 | Avg loss: 2.0481 | Prec@1(avg) 32.44 % | Prec@5(avg) 81.32 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 290/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2456
+Learning rate: 0.00020000 | Curr loss: 1.5575 | Avg loss: 2.0324 | Prec@1(avg) 32.74 % | Prec@5(avg) 81.63 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 300/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2475
+Learning rate: 0.00020000 | Curr loss: 1.5825 | Avg loss: 2.0169 | Prec@1(avg) 33.12 % | Prec@5(avg) 81.94 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 310/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2489
+Learning rate: 0.00020000 | Curr loss: 1.5178 | Avg loss: 2.0034 | Prec@1(avg) 33.38 % | Prec@5(avg) 82.18 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 320/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2489
+Learning rate: 0.00020000 | Curr loss: 1.6132 | Avg loss: 1.9926 | Prec@1(avg) 33.61 % | Prec@5(avg) 82.34 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 330/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2509
+Learning rate: 0.00020000 | Curr loss: 1.5301 | Avg loss: 1.9800 | Prec@1(avg) 33.97 % | Prec@5(avg) 82.52 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 340/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2489
+Learning rate: 0.00020000 | Curr loss: 1.5641 | Avg loss: 1.9677 | Prec@1(avg) 34.26 % | Prec@5(avg) 82.75 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 350/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2470
+Learning rate: 0.00020000 | Curr loss: 1.4125 | Avg loss: 1.9550 | Prec@1(avg) 34.51 % | Prec@5(avg) 82.99 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 360/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2475
+Learning rate: 0.00020000 | Curr loss: 1.8333 | Avg loss: 1.9459 | Prec@1(avg) 34.67 % | Prec@5(avg) 83.19 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 370/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2478
+Learning rate: 0.00020000 | Curr loss: 1.4767 | Avg loss: 1.9344 | Prec@1(avg) 34.95 % | Prec@5(avg) 83.39 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 380/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2485
+Learning rate: 0.00020000 | Curr loss: 1.6129 | Avg loss: 1.9256 | Prec@1(avg) 35.14 % | Prec@5(avg) 83.53 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 390/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2439
+Learning rate: 0.00020000 | Curr loss: 1.6510 | Avg loss: 1.9155 | Prec@1(avg) 35.35 % | Prec@5(avg) 83.72 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 400/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2431
+Learning rate: 0.00020000 | Curr loss: 1.6736 | Avg loss: 1.9068 | Prec@1(avg) 35.51 % | Prec@5(avg) 83.90 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 410/ 834] | Time(avg): 0.24 | Speed: (pics/sec):  2460
+Learning rate: 0.00020000 | Curr loss: 1.4808 | Avg loss: 1.8980 | Prec@1(avg) 35.71 % | Prec@5(avg) 84.09 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 420/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2409
+Learning rate: 0.00020000 | Curr loss: 1.5060 | Avg loss: 1.8886 | Prec@1(avg) 36.00 % | Prec@5(avg) 84.23 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 430/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2395
+Learning rate: 0.00020000 | Curr loss: 1.3843 | Avg loss: 1.8795 | Prec@1(avg) 36.26 % | Prec@5(avg) 84.42 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 440/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2401
+Learning rate: 0.00020000 | Curr loss: 1.4373 | Avg loss: 1.8714 | Prec@1(avg) 36.45 % | Prec@5(avg) 84.58 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 450/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2385
+Learning rate: 0.00020000 | Curr loss: 1.3645 | Avg loss: 1.8627 | Prec@1(avg) 36.66 % | Prec@5(avg) 84.73 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 460/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2370
+Learning rate: 0.00020000 | Curr loss: 1.5820 | Avg loss: 1.8541 | Prec@1(avg) 36.85 % | Prec@5(avg) 84.91 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 470/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2387
+Learning rate: 0.00020000 | Curr loss: 1.5709 | Avg loss: 1.8480 | Prec@1(avg) 36.99 % | Prec@5(avg) 85.04 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 480/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2386
+Learning rate: 0.00020000 | Curr loss: 1.4452 | Avg loss: 1.8403 | Prec@1(avg) 37.16 % | Prec@5(avg) 85.19 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 490/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2369
+Learning rate: 0.00020000 | Curr loss: 1.2892 | Avg loss: 1.8332 | Prec@1(avg) 37.30 % | Prec@5(avg) 85.29 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 500/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2302
+Learning rate: 0.00020000 | Curr loss: 1.4989 | Avg loss: 1.8257 | Prec@1(avg) 37.49 % | Prec@5(avg) 85.45 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 510/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2293
+Learning rate: 0.00020000 | Curr loss: 1.5420 | Avg loss: 1.8189 | Prec@1(avg) 37.63 % | Prec@5(avg) 85.58 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 520/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2306
+Learning rate: 0.00020000 | Curr loss: 1.6201 | Avg loss: 1.8121 | Prec@1(avg) 37.79 % | Prec@5(avg) 85.71 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 530/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2314
+Learning rate: 0.00020000 | Curr loss: 1.7058 | Avg loss: 1.8058 | Prec@1(avg) 37.94 % | Prec@5(avg) 85.83 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 540/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2282
+Learning rate: 0.00020000 | Curr loss: 1.3523 | Avg loss: 1.8008 | Prec@1(avg) 38.12 % | Prec@5(avg) 85.93 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 550/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2288
+Learning rate: 0.00020000 | Curr loss: 1.3759 | Avg loss: 1.7934 | Prec@1(avg) 38.34 % | Prec@5(avg) 86.07 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 560/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2303
+Learning rate: 0.00020000 | Curr loss: 1.5603 | Avg loss: 1.7887 | Prec@1(avg) 38.47 % | Prec@5(avg) 86.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 570/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2313
+Learning rate: 0.00020000 | Curr loss: 1.5573 | Avg loss: 1.7829 | Prec@1(avg) 38.61 % | Prec@5(avg) 86.27 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 580/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2318
+Learning rate: 0.00020000 | Curr loss: 1.2746 | Avg loss: 1.7769 | Prec@1(avg) 38.76 % | Prec@5(avg) 86.39 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 590/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2324
+Learning rate: 0.00020000 | Curr loss: 1.3077 | Avg loss: 1.7720 | Prec@1(avg) 38.91 % | Prec@5(avg) 86.45 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 600/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2334
+Learning rate: 0.00020000 | Curr loss: 1.5933 | Avg loss: 1.7674 | Prec@1(avg) 39.04 % | Prec@5(avg) 86.49 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 610/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2341
+Learning rate: 0.00020000 | Curr loss: 1.5269 | Avg loss: 1.7643 | Prec@1(avg) 39.10 % | Prec@5(avg) 86.55 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 620/ 834] | Time(avg): 0.26 | Speed: (pics/sec):  2342
+Learning rate: 0.00020000 | Curr loss: 1.4835 | Avg loss: 1.7595 | Prec@1(avg) 39.20 % | Prec@5(avg) 86.64 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 630/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2359
+Learning rate: 0.00020000 | Curr loss: 1.3517 | Avg loss: 1.7549 | Prec@1(avg) 39.34 % | Prec@5(avg) 86.72 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 640/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2367
+Learning rate: 0.00020000 | Curr loss: 1.3443 | Avg loss: 1.7500 | Prec@1(avg) 39.47 % | Prec@5(avg) 86.83 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 650/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2373
+Learning rate: 0.00020000 | Curr loss: 1.5136 | Avg loss: 1.7454 | Prec@1(avg) 39.62 % | Prec@5(avg) 86.91 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 660/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2379
+Learning rate: 0.00020000 | Curr loss: 1.3974 | Avg loss: 1.7412 | Prec@1(avg) 39.69 % | Prec@5(avg) 87.01 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 670/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2388
+Learning rate: 0.00020000 | Curr loss: 1.2884 | Avg loss: 1.7362 | Prec@1(avg) 39.87 % | Prec@5(avg) 87.09 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 680/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2388
+Learning rate: 0.00020000 | Curr loss: 1.3558 | Avg loss: 1.7312 | Prec@1(avg) 40.04 % | Prec@5(avg) 87.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 690/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2395
+Learning rate: 0.00020000 | Curr loss: 1.6886 | Avg loss: 1.7265 | Prec@1(avg) 40.17 % | Prec@5(avg) 87.25 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 700/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2395
+Learning rate: 0.00020000 | Curr loss: 1.3702 | Avg loss: 1.7217 | Prec@1(avg) 40.28 % | Prec@5(avg) 87.33 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 710/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2402
+Learning rate: 0.00020000 | Curr loss: 1.3330 | Avg loss: 1.7174 | Prec@1(avg) 40.39 % | Prec@5(avg) 87.40 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 720/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2410
+Learning rate: 0.00020000 | Curr loss: 1.3804 | Avg loss: 1.7127 | Prec@1(avg) 40.54 % | Prec@5(avg) 87.48 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 730/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2411
+Learning rate: 0.00020000 | Curr loss: 1.5100 | Avg loss: 1.7091 | Prec@1(avg) 40.64 % | Prec@5(avg) 87.54 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 740/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2413
+Learning rate: 0.00020000 | Curr loss: 1.3596 | Avg loss: 1.7053 | Prec@1(avg) 40.75 % | Prec@5(avg) 87.60 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 750/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2421
+Learning rate: 0.00020000 | Curr loss: 1.2790 | Avg loss: 1.7015 | Prec@1(avg) 40.85 % | Prec@5(avg) 87.67 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 760/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2422
+Learning rate: 0.00020000 | Curr loss: 1.4549 | Avg loss: 1.6978 | Prec@1(avg) 40.94 % | Prec@5(avg) 87.74 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 770/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2428
+Learning rate: 0.00020000 | Curr loss: 1.5549 | Avg loss: 1.6947 | Prec@1(avg) 41.02 % | Prec@5(avg) 87.81 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 780/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2432
+Learning rate: 0.00020000 | Curr loss: 1.4321 | Avg loss: 1.6907 | Prec@1(avg) 41.11 % | Prec@5(avg) 87.88 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 790/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2429
+Learning rate: 0.00020000 | Curr loss: 1.5858 | Avg loss: 1.6866 | Prec@1(avg) 41.25 % | Prec@5(avg) 87.96 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 800/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2437
+Learning rate: 0.00020000 | Curr loss: 1.3282 | Avg loss: 1.6824 | Prec@1(avg) 41.39 % | Prec@5(avg) 88.03 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 810/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2432
+Learning rate: 0.00020000 | Curr loss: 1.4172 | Avg loss: 1.6790 | Prec@1(avg) 41.47 % | Prec@5(avg) 88.10 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 820/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2432
+Learning rate: 0.00020000 | Curr loss: 1.4050 | Avg loss: 1.6754 | Prec@1(avg) 41.56 % | Prec@5(avg) 88.17 %
+
+Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 830/ 834] | Time(avg): 0.25 | Speed: (pics/sec):  2440
+Learning rate: 0.00020000 | Curr loss: 1.2457 | Avg loss: 1.6715 | Prec@1(avg) 41.69 % | Prec@5(avg) 88.23 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  10/ 167] | Time(avg): 0.57 | Speed: (pics/sec):  1045
+Curr loss: 1.2492 | Avg loss: 1.2969 | Prec@1(avg) 53.50 % | Prec@5(avg) 94.67 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  20/ 167] | Time(avg): 0.30 | Speed: (pics/sec):  1990
+Curr loss: 1.2189 | Avg loss: 1.2522 | Prec@1(avg) 54.83 % | Prec@5(avg) 94.75 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  30/ 167] | Time(avg): 0.21 | Speed: (pics/sec):  2842
+Curr loss: 1.1440 | Avg loss: 1.2787 | Prec@1(avg) 53.89 % | Prec@5(avg) 94.39 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  40/ 167] | Time(avg): 0.17 | Speed: (pics/sec):  3636
+Curr loss: 1.2664 | Avg loss: 1.2879 | Prec@1(avg) 53.92 % | Prec@5(avg) 94.08 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  50/ 167] | Time(avg): 0.14 | Speed: (pics/sec):  4376
+Curr loss: 1.3743 | Avg loss: 1.2981 | Prec@1(avg) 53.63 % | Prec@5(avg) 93.80 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  60/ 167] | Time(avg): 0.12 | Speed: (pics/sec):  5061
+Curr loss: 0.9767 | Avg loss: 1.2844 | Prec@1(avg) 54.28 % | Prec@5(avg) 94.03 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  70/ 167] | Time(avg): 0.10 | Speed: (pics/sec):  5715
+Curr loss: 1.0293 | Avg loss: 1.2842 | Prec@1(avg) 54.60 % | Prec@5(avg) 93.98 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  80/ 167] | Time(avg): 0.09 | Speed: (pics/sec):  6336
+Curr loss: 1.2180 | Avg loss: 1.2786 | Prec@1(avg) 54.83 % | Prec@5(avg) 94.21 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [  90/ 167] | Time(avg): 0.09 | Speed: (pics/sec):  6912
+Curr loss: 1.3826 | Avg loss: 1.2821 | Prec@1(avg) 54.80 % | Prec@5(avg) 94.19 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 100/ 167] | Time(avg): 0.08 | Speed: (pics/sec):  7460
+Curr loss: 1.1335 | Avg loss: 1.2866 | Prec@1(avg) 54.57 % | Prec@5(avg) 94.12 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 110/ 167] | Time(avg): 0.08 | Speed: (pics/sec):  7991
+Curr loss: 1.2791 | Avg loss: 1.2874 | Prec@1(avg) 54.44 % | Prec@5(avg) 94.20 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 120/ 167] | Time(avg): 0.07 | Speed: (pics/sec):  8490
+Curr loss: 1.2743 | Avg loss: 1.2916 | Prec@1(avg) 54.33 % | Prec@5(avg) 94.14 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 130/ 167] | Time(avg): 0.07 | Speed: (pics/sec):  8956
+Curr loss: 1.2888 | Avg loss: 1.2886 | Prec@1(avg) 54.31 % | Prec@5(avg) 94.26 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 140/ 167] | Time(avg): 0.06 | Speed: (pics/sec):  9451
+Curr loss: 1.2205 | Avg loss: 1.2932 | Prec@1(avg) 54.05 % | Prec@5(avg) 94.23 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 150/ 167] | Time(avg): 0.06 | Speed: (pics/sec):  9942
+Curr loss: 1.2169 | Avg loss: 1.2912 | Prec@1(avg) 54.06 % | Prec@5(avg) 94.22 %
+
+Validation | Stg: [ 0/ 1] | Pruning Stg: [ 0/ 0] | Epoch: [ 1/ 1] | Seen data: [ 160/ 167] | Time(avg): 0.06 | Speed: (pics/sec): 10415
+Curr loss: 1.0334 | Avg loss: 1.2912 | Prec@1(avg) 54.08 % | Prec@5(avg) 94.17 %
+

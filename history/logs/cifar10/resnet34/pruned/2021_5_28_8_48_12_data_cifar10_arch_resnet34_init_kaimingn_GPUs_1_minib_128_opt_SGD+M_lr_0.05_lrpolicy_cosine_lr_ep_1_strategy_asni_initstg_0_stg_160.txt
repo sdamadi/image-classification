@@ -1,0 +1,236 @@
+
+========> The following is the setup for this run:
+
+2021_5_28_8_48_12_data_cifar10_arch_resnet34_init_kaimingn_GPUs_1_minib_128_opt_SGD+M_lr_0.05_lrpolicy_cosine_lr_ep_1_strategy_asni_initstg_0_stg_160
+
+arch: resnet34
+pretrained: False
+resume: 
+dataname: cifar10
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 128
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0005
+lr: 0.05
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.1
+lr_steps: [80, 120]
+lowest_lr: 0.001
+scale_coslr: 1.06
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+initial_stage: 0
+stages: 160
+prepruned_model: False
+quantize_prepruned: False
+quantize_bias: False
+prepruned_scen: 
+pruning_strategy: asni
+nonpruned_percent: 0
+mask_stage: 0
+prune_bn: False
+prune_bias: False
+local_quant: False
+asni_perc_max: 100
+asni_mode: sigmoid
+asni_rest_stage: 160.0
+asni_sin_scale: 7
+asni_sin_exponent: 2
+asni_sin_mag: 20
+asni_sigmoid_scale_1: 16.0
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_mag_1: 97.0
+asni_sigmoid_scale_2: 1
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_mag_2: 100
+percent: 0
+local_prune: False
+init_threshold: -10
+init_threshold_type: constant
+str_nonlinear: sigmoid
+str_activation: relu
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar10_resnet34_asni
+logterminal: True
+save_stages: False
+gpu_idx: ['2']
+local_rank: 0
+channels_last: False
+asni_sigmoid_scale: 10
+asni_sigmoid_trans: 0.5
+asni_sigmoid_mag: 80
+str-nonlinear: sigmoid
+str-activation: relu
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 3443.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['2'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 2 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+=> The model, i.e., resnet34, is being replicated on 1 processes.
+
+conv1_weight                     | nonzeros =    9408 /    9408 (100.00%) | total_pruned =       0 | shape = (64, 3, 7, 7)
+bn1_weight                       | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+bn1_bias                         | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_0_conv1_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_0_bn1_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_0_bn1_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_0_conv2_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_0_bn2_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_0_bn2_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_1_conv1_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_1_bn1_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_1_bn1_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_1_conv2_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_1_bn2_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_1_bn2_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_2_conv1_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_2_bn1_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_2_bn1_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer1_2_conv2_weight            | nonzeros =   36864 /   36864 (100.00%) | total_pruned =       0 | shape = (64, 64, 3, 3)
+layer1_2_bn2_weight              | nonzeros =      64 /      64 (100.00%) | total_pruned =       0 | shape = (64)
+layer1_2_bn2_bias                | nonzeros =       0 /      64 (  0.00%) | total_pruned =      64 | shape = (64)
+layer2_0_conv1_weight            | nonzeros =   73728 /   73728 (100.00%) | total_pruned =       0 | shape = (128, 64, 3, 3)
+layer2_0_bn1_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_0_bn1_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_0_conv2_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_0_bn2_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_0_bn2_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_0_downsample_0_weight     | nonzeros =    8192 /    8192 (100.00%) | total_pruned =       0 | shape = (128, 64, 1, 1)
+layer2_0_downsample_1_weight     | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_0_downsample_1_bias       | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_1_conv1_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_1_bn1_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_1_bn1_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_1_conv2_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_1_bn2_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_1_bn2_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_2_conv1_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_2_bn1_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_2_bn1_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_2_conv2_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_2_bn2_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_2_bn2_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_3_conv1_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_3_bn1_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_3_bn1_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer2_3_conv2_weight            | nonzeros =  147456 /  147456 (100.00%) | total_pruned =       0 | shape = (128, 128, 3, 3)
+layer2_3_bn2_weight              | nonzeros =     128 /     128 (100.00%) | total_pruned =       0 | shape = (128)
+layer2_3_bn2_bias                | nonzeros =       0 /     128 (  0.00%) | total_pruned =     128 | shape = (128)
+layer3_0_conv1_weight            | nonzeros =  294912 /  294912 (100.00%) | total_pruned =       0 | shape = (256, 128, 3, 3)
+layer3_0_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_0_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_0_conv2_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_0_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_0_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_0_downsample_0_weight     | nonzeros =   32768 /   32768 (100.00%) | total_pruned =       0 | shape = (256, 128, 1, 1)
+layer3_0_downsample_1_weight     | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_0_downsample_1_bias       | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_1_conv1_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_1_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_1_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_1_conv2_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_1_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_1_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_2_conv1_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_2_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_2_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_2_conv2_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_2_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_2_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_3_conv1_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_3_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_3_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_3_conv2_weight            | nonzeros =  589823 /  589824 (100.00%) | total_pruned =       1 | shape = (256, 256, 3, 3)
+layer3_3_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_3_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_4_conv1_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_4_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_4_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_4_conv2_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_4_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_4_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_5_conv1_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_5_bn1_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_5_bn1_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer3_5_conv2_weight            | nonzeros =  589824 /  589824 (100.00%) | total_pruned =       0 | shape = (256, 256, 3, 3)
+layer3_5_bn2_weight              | nonzeros =     256 /     256 (100.00%) | total_pruned =       0 | shape = (256)
+layer3_5_bn2_bias                | nonzeros =       0 /     256 (  0.00%) | total_pruned =     256 | shape = (256)
+layer4_0_conv1_weight            | nonzeros = 1179647 / 1179648 (100.00%) | total_pruned =       1 | shape = (512, 256, 3, 3)
+layer4_0_bn1_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_0_bn1_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_0_conv2_weight            | nonzeros = 2359296 / 2359296 (100.00%) | total_pruned =       0 | shape = (512, 512, 3, 3)
+layer4_0_bn2_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_0_bn2_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_0_downsample_0_weight     | nonzeros =  131072 /  131072 (100.00%) | total_pruned =       0 | shape = (512, 256, 1, 1)
+layer4_0_downsample_1_weight     | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_0_downsample_1_bias       | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_1_conv1_weight            | nonzeros = 2359296 / 2359296 (100.00%) | total_pruned =       0 | shape = (512, 512, 3, 3)
+layer4_1_bn1_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_1_bn1_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_1_conv2_weight            | nonzeros = 2359296 / 2359296 (100.00%) | total_pruned =       0 | shape = (512, 512, 3, 3)
+layer4_1_bn2_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_1_bn2_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_2_conv1_weight            | nonzeros = 2359296 / 2359296 (100.00%) | total_pruned =       0 | shape = (512, 512, 3, 3)
+layer4_2_bn1_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_2_bn1_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+layer4_2_conv2_weight            | nonzeros = 2359296 / 2359296 (100.00%) | total_pruned =       0 | shape = (512, 512, 3, 3)
+layer4_2_bn2_weight              | nonzeros =     512 /     512 (100.00%) | total_pruned =       0 | shape = (512)
+layer4_2_bn2_bias                | nonzeros =       0 /     512 (  0.00%) | total_pruned =     512 | shape = (512)
+fc_weight                        | nonzeros =  512000 /  512000 (100.00%) | total_pruned =       0 | shape = (1000, 512)
+fc_bias                          | nonzeros =       0 /    1000 (  0.00%) | total_pruned =    1000 | shape = (1000)
+
+Stg: [ 0/160] | Pruning Stg: [ 0/160] | Nonz: 21788158 | Pruned: 9514 | Total: 21797672 | Comp:  1.00x  (0.04% pruned)
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/ 391] | Time(avg): 2.76 | Speed: (pics/sec):   464
+Learning rate: 0.05000000 | Curr loss: 3.0836 | Avg loss: 5.9969 | Prec@1(avg) 9.38 % | Prec@5(avg) 39.38 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/ 391] | Time(avg): 1.87 | Speed: (pics/sec):   685
+Learning rate: 0.05000000 | Curr loss: 5.1275 | Avg loss: 5.6275 | Prec@1(avg) 9.61 % | Prec@5(avg) 44.69 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/ 391] | Time(avg): 1.51 | Speed: (pics/sec):   845
+Learning rate: 0.05000000 | Curr loss: 3.5189 | Avg loss: 5.0336 | Prec@1(avg) 10.96 % | Prec@5(avg) 48.91 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/ 391] | Time(avg): 1.35 | Speed: (pics/sec):   952
+Learning rate: 0.05000000 | Curr loss: 2.3873 | Avg loss: 4.5553 | Prec@1(avg) 12.56 % | Prec@5(avg) 51.60 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/ 391] | Time(avg): 1.26 | Speed: (pics/sec):  1012
+Learning rate: 0.05000000 | Curr loss: 2.4491 | Avg loss: 4.3350 | Prec@1(avg) 13.05 % | Prec@5(avg) 54.55 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  60/ 391] | Time(avg): 1.19 | Speed: (pics/sec):  1071
+Learning rate: 0.05000000 | Curr loss: 2.2768 | Avg loss: 4.1740 | Prec@1(avg) 13.54 % | Prec@5(avg) 56.03 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  70/ 391] | Time(avg): 1.19 | Speed: (pics/sec):  1072
+Learning rate: 0.05000000 | Curr loss: 2.5201 | Avg loss: 3.9626 | Prec@1(avg) 14.06 % | Prec@5(avg) 57.63 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  80/ 391] | Time(avg): 1.16 | Speed: (pics/sec):  1099
+Learning rate: 0.05000000 | Curr loss: 2.7435 | Avg loss: 3.8083 | Prec@1(avg) 14.78 % | Prec@5(avg) 59.80 %
+
+Stg: [ 0/160] | Pruning Stg: [ 0/ 0] | Zero params: 0.04 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  90/ 391] | Time(avg): 1.16 | Speed: (pics/sec):  1105
+Learning rate: 0.05000000 | Curr loss: 2.9402 | Avg loss: 3.7547 | Prec@1(avg) 15.56 % | Prec@5(avg) 61.41 %
+

@@ -9,11 +9,7 @@ def SFO(model, args):
     if args.optimizer == 'SGD':
         optimizer = CustomSGD(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
-    elif args.optimizer == 'SGD+M': 
-
-        # optimizer = torch.optim.SGD(model.parameters(), args.lr,
-        #                         momentum=args.momentum,
-        #                         weight_decay=args.weight_decay)
+    elif args.optimizer == 'SGD+M':
                                    
         optimizer = CustomSGD(model.parameters(), lr=args.lr,
                                     momentum=args.momentum,

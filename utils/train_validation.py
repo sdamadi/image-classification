@@ -13,10 +13,9 @@ class TraVal(object):
     def __init__(self, model, train_loader,
                     optimizer, criterion, scaler,
                     args, validation_loader,
-                    writer, mask, eta, curr_scen_name):
+                    writer, curr_scen_name):
 
         self.model = model
-        self.mask = mask
         self.args = args
         self.train_loader = train_loader
         self.validation_loader = validation_loader
@@ -24,9 +23,6 @@ class TraVal(object):
         self.criterion = criterion
         self.writer = writer
         self.scaler = scaler
-        self.eta = eta
-        self.pruned_percent = round(float(100*(1-self.eta)))
-        self.best_pruned = round(float(100*(1-self.eta)))
         self.loss_vector = list()
         self.accuracy_vector = list()
         self.train_loss = 0
@@ -46,7 +42,6 @@ class TraVal(object):
         self.golden = False
         self.golden_stage = 0
         self.global_threshold = 0
-        self.Pruning_Percent = [round((1-self.eta.item())*100,2)]
         self.Learning_Rate = [self.args.lr]
         self.curr_scen_name = curr_scen_name
         if args.local_rank == 0:
@@ -104,15 +99,8 @@ class TraVal(object):
                 total_norm += param_norm.item() ** 2
             total_norm = total_norm ** (1. / 2)
             self.grad_norm = total_norm
-
-            # `or self.args.prepruned_model` accounts for the case of training a sparse network  
-            if self.args.pruning_strategy in {'asni', 'lottery', 'quantize', 'prepruned'}: #and 
-                if self.args.percent == 0 and self.args.pruning_strategy == 'lottery' and not self.args.prepruned_model:
-                    self.mask = None
-            else:
-                self.mask = None
             
-            self.scaler.step(self.optimizer, self.mask)
+            self.scaler.step(self.optimizer)
             self.scaler.update()
 
             self.step += 1
@@ -173,7 +161,6 @@ class TraVal(object):
                     print(f'Stg: [{stage:2}/{self.args.stages+self.args.initial_stage:2}] | '\
                         f'Pruning Stg: [{prune_stg:2}/'\
                         f'{prune_stgs:2}] | '\
-                        f'Zero params: {100*(1-self.eta):4.2f} %\n'\
                         f'Num of GPUs:{self.args.world_size:2} | '\
                         f'Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'[{i:4}/{len(self.train_loader):4}] | '\
@@ -258,7 +245,6 @@ class TraVal(object):
                     print(
                         f'Validation | Stg: [{stage :2}/{self.args.stages + self.args.initial_stage:2}] | '\
                         f'Pruning Stg: [{prune_stg:2}/{prune_stgs:2}] | '\
-                        f'Zero params: {100*(1-self.eta):4.2f} %\n'\
                         f'Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'Seen data: [{i:4}/{len(self.validation_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_ts*self.batch_time_ts.avg:4.2f} | '\
@@ -338,7 +324,6 @@ class TraVal(object):
                     self.golden_stage = stage
                     if self.best_top1_test < self.top1_ts.avg:
                         self.best_top1_test = self.top1_ts.avg
-                        self.best_pruned = self.pruned_percent
                         
                     # save the best network with quantized parameters
                     self.golden = True
@@ -353,12 +338,9 @@ class TraVal(object):
                 self.writer.add_scalar('Best/Top1', self.best_top1_test, stage)
                 self.Best_Top1_Test.append(self.best_top1_test) 
 
-                self.writer.add_scalar('Best/Percent', self.best_pruned, stage)
-                self.Best_Percent.append(self.best_pruned) 
 
     def stage_quantities(self):
        
-        self.Pruning_Percent.append(self.pruned_percent) 
         self.Learning_Rate.append(self.lr)
 
     def close(self):
@@ -398,25 +380,17 @@ class TraVal(object):
         file_name = f'TestTop5_{self.scen_name}.npy'
         np.save(path + file_name, self.TestTop5)
 
-        file_name = f'Pruning_Percent_{self.scen_name}.npy'
-        np.save(path + file_name, self.Pruning_Percent)
 
         file_name = f'Learning_Rate_{self.scen_name}.npy'
         np.save(path + file_name, self.Learning_Rate)
 
-        if self.args.pruning_strategy in {'asni', 'lottery'}:    
 
-            file_name = f'Best_Stage_{self.scen_name}.npy'
-            np.save(path + file_name, self.Best_Stage)
+        file_name = f'Best_Loss_Test_{self.scen_name}.npy'
+        np.save(path + file_name, self.Best_Loss_Test)
 
-            file_name = f'Best_Loss_Test_{self.scen_name}.npy'
-            np.save(path + file_name, self.Best_Loss_Test)
+        file_name = f'Best_Top1_Test_{self.scen_name}.npy'
+        np.save(path + file_name, self.Best_Top1_Test)
 
-            file_name = f'Best_Top1_Test_{self.scen_name}.npy'
-            np.save(path + file_name, self.Best_Top1_Test)
-
-            file_name = f'Best_Percent_{self.scen_name}.npy'
-            np.save(path + file_name, self.Best_Percent)
 
 
     def time_remover(self, curr_scen_name):

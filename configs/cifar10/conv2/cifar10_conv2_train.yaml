@@ -1,4 +1,4 @@
-# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv2 --dataname cifar10 --config cifar10_conv2_train
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv2 --dataname cifar10 --config cifar10_conv2_train --logterminal
 # ===== Configuration ===== #
 config: cifar10_conv2_train
 # ===== Architecture ===== #
@@ -32,7 +32,7 @@ prepruned_model: False
 pruning_strategy: 'lottery'
 percent: 0
 initial_stage: 0
-stages: 60
+stages: 1
 local_prune: False
 prune_bias: False
 prune_bn: False

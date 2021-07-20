@@ -43,7 +43,7 @@ local_quant: False
 prune_bias: False
 prune_bn: False
 initial_stage: 0
-stages: 50
+stages: 1
 # ===== Asni ======== #
 asni_sin_scale: 7
 asni_sin_exponent: 2

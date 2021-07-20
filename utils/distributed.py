@@ -22,9 +22,7 @@ class Distributed(object):
         
         if self.args.distributed:
         
-            
-            
-            
+
             # `args.gpu_idx` is a list of indices of gpus each on which
             # each process will be run and would be the same for every node 
             

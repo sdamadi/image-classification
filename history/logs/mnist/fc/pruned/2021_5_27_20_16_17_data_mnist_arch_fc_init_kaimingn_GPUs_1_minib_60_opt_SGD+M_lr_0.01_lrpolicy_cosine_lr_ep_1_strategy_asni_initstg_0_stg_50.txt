@@ -1,0 +1,130 @@
+
+========> The following is the setup for this run:
+
+2021_5_27_20_16_17_data_mnist_arch_fc_init_kaimingn_GPUs_1_minib_60_opt_SGD+M_lr_0.01_lrpolicy_cosine_lr_ep_1_strategy_asni_initstg_0_stg_50
+
+arch: fc
+pretrained: False
+resume: 
+dataname: mnist
+datapath: ./data/mnist/
+workers: 20
+batch_size: 60
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.01
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0
+scale_coslr: 1.0
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+initial_stage: 0
+stages: 50
+prepruned_model: False
+quantize_prepruned: False
+quantize_bias: False
+prepruned_scen: 
+pruning_strategy: asni
+nonpruned_percent: 0
+mask_stage: 0
+prune_bn: False
+prune_bias: False
+local_quant: False
+asni_perc_max: 100
+asni_mode: sigmoid
+asni_rest_stage: 50.0
+asni_sin_scale: 7
+asni_sin_exponent: 2
+asni_sin_mag: 20
+asni_sigmoid_scale_1: 1.0
+asni_sigmoid_trans_1: 0.5
+asni_sigmoid_mag_1: 99.0
+asni_sigmoid_scale_2: 2
+asni_sigmoid_trans_2: 0.5
+asni_sigmoid_mag_2: 10
+percent: 0
+local_prune: False
+init_threshold: -10
+init_threshold_type: constant
+str_nonlinear: sigmoid
+str_activation: relu
+print_freq_tr: 10
+print_freq_ts: 10
+config: mnist_fc_asni
+logterminal: True
+save_stages: False
+gpu_idx: ['0']
+local_rank: 0
+channels_last: False
+quantize-prepruned: False
+quantize-bias: True
+str-nonlinear: sigmoid
+str-activation: relu
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 18845.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+
+=> The model, i.e., fc, is being replicated on 1 processes.
+
+fc1_weight                       | nonzeros =  235200 /  235200 (100.00%) | total_pruned =       0 | shape = (300, 784)
+fc1_bias                         | nonzeros =       0 /     300 (  0.00%) | total_pruned =     300 | shape = (300)
+fc2_weight                       | nonzeros =   30000 /   30000 (100.00%) | total_pruned =       0 | shape = (100, 300)
+fc2_bias                         | nonzeros =       0 /     100 (  0.00%) | total_pruned =     100 | shape = (100)
+fc3_weight                       | nonzeros =    1000 /    1000 (100.00%) | total_pruned =       0 | shape = (10, 100)
+fc3_bias                         | nonzeros =       0 /      10 (  0.00%) | total_pruned =      10 | shape = (10)
+
+Stg: [ 0/50] | Pruning Stg: [ 0/50] | Nonz: 266200 | Pruned: 410 | Total: 266610 | Comp:  1.00x  (0.15% pruned)
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/1000] | Time(avg): 3.62 | Speed: (pics/sec):   166
+Learning rate: 0.01000000 | Curr loss: 1.2832 | Avg loss: 2.6004 | Prec@1(avg) 28.67 % | Prec@5(avg) 68.50 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/1000] | Time(avg): 2.52 | Speed: (pics/sec):   238
+Learning rate: 0.01000000 | Curr loss: 0.6654 | Avg loss: 1.8401 | Prec@1(avg) 47.08 % | Prec@5(avg) 81.42 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/1000] | Time(avg): 2.20 | Speed: (pics/sec):   273
+Learning rate: 0.01000000 | Curr loss: 0.5568 | Avg loss: 1.4468 | Prec@1(avg) 58.00 % | Prec@5(avg) 86.94 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/1000] | Time(avg): 2.13 | Speed: (pics/sec):   282
+Learning rate: 0.01000000 | Curr loss: 0.3631 | Avg loss: 1.2123 | Prec@1(avg) 64.42 % | Prec@5(avg) 89.92 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/1000] | Time(avg): 2.03 | Speed: (pics/sec):   295
+Learning rate: 0.01000000 | Curr loss: 0.4792 | Avg loss: 1.0590 | Prec@1(avg) 68.67 % | Prec@5(avg) 91.57 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  60/1000] | Time(avg): 1.94 | Speed: (pics/sec):   310
+Learning rate: 0.01000000 | Curr loss: 0.4742 | Avg loss: 0.9551 | Prec@1(avg) 71.92 % | Prec@5(avg) 92.67 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  70/1000] | Time(avg): 1.89 | Speed: (pics/sec):   317
+Learning rate: 0.01000000 | Curr loss: 0.3776 | Avg loss: 0.8702 | Prec@1(avg) 74.21 % | Prec@5(avg) 93.60 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  80/1000] | Time(avg): 1.78 | Speed: (pics/sec):   337
+Learning rate: 0.01000000 | Curr loss: 0.1448 | Avg loss: 0.8072 | Prec@1(avg) 76.12 % | Prec@5(avg) 94.27 %
+
+Stg: [ 0/50] | Pruning Stg: [ 0/ 0] | Zero params: 0.15 %
+Num of GPUs: 1 | Epoch: [ 1/ 1] | [  90/1000] | Time(avg): 1.75 | Speed: (pics/sec):   343
+Learning rate: 0.01000000 | Curr loss: 0.4157 | Avg loss: 0.7587 | Prec@1(avg) 77.33 % | Prec@5(avg) 94.83 %
+
