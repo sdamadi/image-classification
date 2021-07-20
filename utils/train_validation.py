@@ -38,16 +38,15 @@ class TraVal(object):
         self.TrainingLoss, self.TrainingTop1, self.TrainingTop5 = ( [] for i in range(3) )
         self.TestLoss, self.TestTop1, self.TestTop5 = ( [] for i in range(3) )
         self.best_loss_test, self.best_top1_test  = np.inf, 0
-        self.Best_Stage, self.Best_Loss_Test, self.Best_Top1_Test, self.Best_Percent = ([] for i in range(4) )
+        self.Best_Stage, self.Best_Loss_Test, self.Best_Top1_Test = ([] for i in range(3) )
         self.golden = False
-        self.golden_stage = 0
         self.global_threshold = 0
         self.Learning_Rate = [self.args.lr]
         self.curr_scen_name = curr_scen_name
         if args.local_rank == 0:
             self.scen_name, self.scen_time = self.time_remover(self.curr_scen_name)
         self.lr_policy = LR(self.args.lr_policy, self.args.lr, self.args.warmup_length,
-                             self.args.epochs, self.args.initial_stage, self.args.stages,
+                             self.args.initial_epoch, self.args.epochs,
                              self.args.lowest_lr, self.args.scale_coslr, self.args.exp_coslr,
                              self.args.normal_exp_scale,
                              self.args.lr_gamma, self.args.lr_steps)
@@ -55,7 +54,7 @@ class TraVal(object):
         self.lr = self.args.lr
 
 
-    def train(self, epoch, stage):
+    def train(self, epoch):
         self.epoch = epoch
         self.epoch_length = len(self.train_loader)
 
@@ -75,7 +74,7 @@ class TraVal(object):
         # while i<=20:
             i += 1
             # self.adjust_learning_rate(i, stage)
-            self.lr = self.lr_policy.apply_lr(self.epoch, stage)
+            self.lr = self.lr_policy.apply_lr(self.epoch)
             self.assign_learning_rate(self.lr)
 
             # compute output
@@ -122,18 +121,8 @@ class TraVal(object):
             self.top5_tr.update(self.prec5_tr.data.item(), input.size(0))
 
             
-            self.write_net_values(stage, train=True)
-            
-            # if torch.distributed.get_rank() == 0:            
-            #     self.writer.add_scalar('Loss/train', self.reduced_loss_tr.item(), self.step)
-            #     self.writer.add_scalar(f'Gradient/Norm', self.grad_norm, self.step)
-            #     self.writer.add_scalar(f'Top1/train', self.prec1_tr.data.item(), self.step)
-            #     self.writer.add_scalar(f'Top1/lr', self.lr, self.step)
-            #     self.writer.add_scalar(f'Top5/train', self.prec5_tr.data.item(), self.step)
-            #     self.writer.add_scalar(f'Top5/lr', self.lr, self.step)
-
-
-                # self.writer.add_scalar(f'Gradient/Norm', self.traval.grad_norm, self.traval.step)
+            self.write_net_values(train=True)
+        
 
             torch.cuda.synchronize()
             self.batch_time_tr.update((time.time() - self.end_tr) ) #self.args.print_freq_tr
@@ -148,20 +137,9 @@ class TraVal(object):
                     self.curr_throughput_tr = self.args.world_size*self.args.batch_size/self.batch_time_tr.val
                     self.avg_throughput_tr = self.args.world_size*self.args.batch_size/self.batch_time_tr.avg
                     
-                    if stage>= self.args.initial_stage and self.args.percent !=0 and self.args.pruning_strategy in {'asni', 'lottery'}:
-                        prune_stg = stage - self.args.initial_stage
-                    else:
-                        prune_stg = 0
-                    
-                    if self.args.percent !=0 and self.args.pruning_strategy in {'asni', 'lottery'}:
-                        prune_stgs = self.args.stages - 1
-                    else:
-                        prune_stgs = 0
 
-                    print(f'Stg: [{stage:2}/{self.args.stages+self.args.initial_stage:2}] | '\
-                        f'Pruning Stg: [{prune_stg:2}/'\
-                        f'{prune_stgs:2}] | '\
-                        f'Num of GPUs:{self.args.world_size:2} | '\
+                    print(
+                        f'Training: Num of GPUs:{self.args.world_size:2} | '\
                         f'Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'[{i:4}/{len(self.train_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_tr*self.batch_time_tr.avg:4.2f} | '\
@@ -179,7 +157,7 @@ class TraVal(object):
             param_group["lr"] = new_lr
 
     
-    def validation(self, epoch, stage, report):
+    def validation(self, epoch, report):
         self.epoch = epoch
  
         self.batch_time_ts = AverageMeter()
@@ -232,20 +210,10 @@ class TraVal(object):
                     self.curr_throughput_ts = self.args.world_size * self.args.batch_size / self.batch_time_ts.val
                     self.avg_throughput_ts = self.args.world_size * self.args.batch_size / self.batch_time_ts.avg
                     
-                    if stage>= self.args.initial_stage and self.args.percent !=0 and self.args.pruning_strategy in {'asni', 'lottery'}:
-                        prune_stg = stage - self.args.initial_stage
-                    else:
-                        prune_stg = 0
                     
-                    if self.args.percent !=0 and self.args.pruning_strategy in {'asni', 'lottery'}:
-                        prune_stgs = self.args.stages - 1
-                    else:
-                        prune_stgs = 0
 
                     print(
-                        f'Validation | Stg: [{stage :2}/{self.args.stages + self.args.initial_stage:2}] | '\
-                        f'Pruning Stg: [{prune_stg:2}/{prune_stgs:2}] | '\
-                        f'Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
+                        f'Validation: Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'Seen data: [{i:4}/{len(self.validation_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_ts*self.batch_time_ts.avg:4.2f} | '\
                         f'Speed: (pics/sec): {self.avg_throughput_ts:5.0f}\n'\
@@ -256,7 +224,7 @@ class TraVal(object):
             
             
             
-        self.write_net_values(stage, train=False)        
+        self.write_net_values(train=False)        
         
         return self.losses_ts.avg, self.top1_ts.avg, self.top5_ts.avg
 
@@ -282,7 +250,7 @@ class TraVal(object):
         rt /= self.args.world_size
         return rt
 
-    def write_net_values(self, stage, train):
+    def write_net_values(self, train):
         
         if self.args.local_rank == 0 and train: 
             self.writer.add_scalar('Loss/Training', self.reduced_loss_tr.item(), self.step)
@@ -299,43 +267,33 @@ class TraVal(object):
         elif self.args.local_rank == 0 and not train:
 
             # calculate the average
-            self.writer.add_scalar('Loss/Test', self.losses_ts.avg, stage*self.args.epochs + self.epoch + 1)
-            self.writer.add_scalar('Top1/Test', self.top1_ts.avg, stage*self.args.epochs + self.epoch + 1)
-            self.writer.add_scalar('Top5/Test', self.top5_ts.avg, stage*self.args.epochs + self.epoch + 1)
-
-            # self.writer.add_scalar('Loss/Test', self.reduced_loss_ts.data.item(), stage*self.args.epochs + self.epoch + 1)
-            # self.writer.add_scalar('Top1/Test', self.prec1_ts.data.item(), stage*self.args.epochs + self.epoch + 1)
-            # self.writer.add_scalar('Top5/Test', self.prec5_ts.data.item(), stage*self.args.epochs + self.epoch + 1)
+            self.writer.add_scalar('Loss/Test', self.losses_ts.avg,  self.epoch + 1)
+            self.writer.add_scalar('Top1/Test', self.top1_ts.avg,  self.epoch + 1)
+            self.writer.add_scalar('Top5/Test', self.top5_ts.avg, self.epoch + 1)
 
 
             self.TestLoss.append( self.losses_ts.avg )
             self.TestTop1.append( self.top1_ts.avg )
             self.TestTop5.append( self.top5_ts.avg )   
 
-    def best_values(self, stage):
+    def best_values(self, epoch):
 
         if self.args.local_rank == 0:
 
             self.golden = False
-            if self.args.pruning_strategy in {'asni', 'lottery'} and stage+1 != self.args.initial_stage:
 
-                if self.losses_ts.avg < self.best_loss_test:
-                    self.best_loss_test = self.losses_ts.avg 
-                    self.golden_stage = stage
-                    if self.best_top1_test < self.top1_ts.avg:
-                        self.best_top1_test = self.top1_ts.avg
-                        
-                    # save the best network with quantized parameters
-                    self.golden = True
+            if self.losses_ts.avg < self.best_loss_test:
+                self.best_loss_test = self.losses_ts.avg 
+                if self.best_top1_test < self.top1_ts.avg:
+                    self.best_top1_test = self.top1_ts.avg
+                    
+                # save the best network with quantized parameters
+                self.golden = True
             
-            if self.args.pruning_strategy in {'asni', 'lottery'}: 
-                self.writer.add_scalar('Best/stage of pruning', self.golden_stage, stage)
-                self.Best_Stage.append(self.golden_stage) 
-
-                self.writer.add_scalar('Best/Loss_Val', self.best_loss_test, stage)
+                self.writer.add_scalar('Best/Loss_Val', self.best_loss_test, epoch)
                 self.Best_Loss_Test.append(self.best_loss_test)  
 
-                self.writer.add_scalar('Best/Top1', self.best_top1_test, stage)
+                self.writer.add_scalar('Best/Top1', self.best_top1_test, epoch)
                 self.Best_Top1_Test.append(self.best_top1_test) 
 
 

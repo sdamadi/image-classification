@@ -11,15 +11,7 @@ class Outputwriter(object):
         self.args = args
         self.curr_scen_name = curr_scen_name
         self.scen_name, self.scen_time = self.time_remover(self.curr_scen_name)
-
-        if self.args.percent == 0 and not self.args.prepruned_model:
-            self.mode = 'trainandtest'
-        elif self.args.prepruned_model:
-            self.mode = 'trainedsparse'
-        elif self.args.percent != 0 and not self.args.prepruned_model:
-            self.mode = 'pruned'
         
-        self.golden_stage = 0
         self.best_loss_val, self.best_top1, self.best_top5  = -np.log(np.exp(1/1000)), 0, 0
         
         self.GradNorm, self.GradDot, self.delta2 = [] , [], []
@@ -39,21 +31,13 @@ class Outputwriter(object):
             new_name = name.replace('.','_').replace('module_', '')
                       
    
-    def net_params(self, stage):
+    def net_params(self):
 
-        last = self.args.save_stages if stage != (self.args.initial_stage+self.args.stages-1) else True
-        if self.args.local_rank == 0 and (last or self.args.save_stages ):
-            
-            root = 'history/variables'
-  
-            if not self.args.prepruned_model: 
-                torch.save(self.model.state_dict(), f'./history/saved/{self.args.dataname}/{self.args.arch}/'\
-                        f'saved_at_each_stage_of_pruning/{self.scen_time}/'\
-                        f'_{self.scen_name}.pth.tar')
-            elif self.args.prepruned_model:
-                torch.save(self.model.state_dict(), f'./history/saved/{self.args.dataname}/{self.args.arch}/'\
-                        f'saved_retrained_prepruned_net_at_each_stage/{self.scen_time}/'\
-                        f'_{self.scen_name}.pth.tar')
+        root = 'history/variables'
+
+        torch.save(self.model.state_dict(), f'./history/saved/{self.args.dataname}/{self.args.arch}/'\
+                f'saved_end_of_training/{self.scen_time}/'\
+                f'_{self.scen_name}.pth.tar')
         
 
     def close(self):
@@ -65,11 +49,7 @@ class Outputwriter(object):
             self.folder_builder(path = path1, folder_name = self.scen_time)
             path = f'{path1}/{self.scen_time}/'
 
-            file_name = f'Prune_Percent_{self.scen_name}.npy'
-            np.save(path + file_name, self.Prune_Percent)  
-
-            file_name = f'Global_Threshold_{self.scen_name}.npy'
-            np.save(path + file_name, self.Global_Threshold)
+  
     
     def time_remover(self, curr_scen_name):
         scen_name = "_".join(curr_scen_name.split('_')[6:])

@@ -4,7 +4,7 @@ import sys
 
 def parse():
     parser = argparse.ArgumentParser(
-                        description='Amenable Sparse Network Investigator')
+                        description='Comprehensive image classification')
     # ===== Architecture ===== #
     parser.add_argument('--arch', '-a', metavar='ARCH', default='resnet50')
     parser.add_argument('--pretrained', dest='pretrained', action='store_true',
@@ -35,8 +35,11 @@ def parse():
     parser.add_argument('--optimizer', '-o', default='SGD+M', type=str, help='SGD | SGD+M | Adam')
     parser.add_argument('--epochs', default=90, type=int, metavar='N',
                         help='number of total epochs to run')
+    parser.add_argument('--initial-epoch', default=0, type=int, metavar='N',
+                        help='initial epoch')
     parser.add_argument('--label-smoothing', type=float,
                         help='Label smoothing not to use it, default=0', default=0.1)
+    # ===== Learning Rate ======== #                    
     parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
                         metavar='W', help='weight decay (default: 1e-4)')
     parser.add_argument('--lr', '--learning-rate', default=0.256, type=float,
@@ -81,49 +84,6 @@ def parse():
     parser.add_argument('--prune-bias', help='prune bias elements', action='store_true')
     parser.add_argument('--local-quant', help='quantization type (network-wise|layer-wise)',
     action='store_true')
-    # ===== Asni ======== #
-    parser.add_argument('--asni-perc-max', default=100, type=float,
-                        help='maximum allowable pruning percentage')
-    parser.add_argument('--asni-mode', default='sigmoid', type=str,
-                            help='sine | sigmoid')
-    parser.add_argument('--asni-rest-stage', default=1000, type=float,
-                        help='pruning is decreased sharply')                         
-    parser.add_argument('--asni-sin-scale', default=1, type=float, metavar='M', 
-                        help='scaling sin function for pruning percentage')
-    parser.add_argument('--asni-sin-exponent', default=1, type=int, metavar='M', 
-                        help='Exponent of sin function for pruning percentage')
-    parser.add_argument('--asni-sin-mag', default=100, type=float,
-                        help='Magnitude of sine function')   
-    parser.add_argument('--asni-sigmoid-scale-1', default=1, type=float, metavar='M', 
-                        help='scaling Sigmoid function for pruning percentage')
-    parser.add_argument('--asni-sigmoid-trans-1', default=0.5, type=float, metavar='M', 
-                        help='fraction of stages to translate Sigmoid function')
-    parser.add_argument('--asni-sigmoid-mag-1', default=100, type=float,
-                        help='Magnitude of Sigmoid function') 
-    parser.add_argument('--asni-sigmoid-scale-2', default=1, type=float, metavar='M', 
-                        help='scaling Sigmoid function for pruning percentage')
-    parser.add_argument('--asni-sigmoid-trans-2', default=0.5, type=float, metavar='M', 
-                        help='fraction of stages to translate Sigmoid function')
-    parser.add_argument('--asni-sigmoid-mag-2', default=100, type=float,
-                        help='Magnitude of Sigmoid function') 
-                                          
-    # ===== Lottery ======== #                        
-    parser.add_argument('--percent', type=int, default=10,
-                        help='pruning percentile rank')
-    parser.add_argument('--local-prune', help='pruning type (network-wise|layer-wise)',
-                            action='store_true')
-    # ===== STR ======== #
-    parser.add_argument('--init-threshold', default=-5, type=float, metavar='M',
-                        help='STR initial threshold') 
-    parser.add_argument('--init-threshold-type', default='constant', type=str,
-                            help='STR initialization for threshold')
-    parser.add_argument('--str-nonlinear', default='sigmoid', type=str,
-                            help='sigmoid | none')
-    parser.add_argument('--str-activation', default='relu', type=str,
-                            help='STR activation for thresholding')                         
-    # ===== GMP ======== #
-    # ===== RigL ======== #
-    # ===== SNIP ======== #    
     # ===== Logging ======== #
     parser.add_argument('--print-freq-tr', default=10, type=int,
                         metavar='N', help='train print frequency (default: 10)')
@@ -138,6 +98,7 @@ def parse():
                         help='indices of GPUs on which a process is run')
     parser.add_argument('--local_rank', default=0, type=int)
     parser.add_argument('--channels-last', type=bool, default=False)
+
 
 
     args = parser.parse_args()

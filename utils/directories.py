@@ -16,10 +16,9 @@ class Directories(object):
                         'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
                         'mobilenet_v2']
 
-        self.level_1 = ['pruned', 'trainandtest', 'trainedsparse']
-        self.level_2 = ['main'] #, 'parameters'
-        self.level_3 = ['initialization', 'final']
-        self.level_4 = ['layers', 'network']
+        self.level_1 = ['trainandtest', ]
+        self.level_2 = ['main'] 
+
 
         # extract the time and name of the scenario from `curr_scen_name`
         self.scen_name, self.scen_time = self.time_remover(self.curr_scen_name)
@@ -35,16 +34,8 @@ class Directories(object):
     #creates the name of the text files that logs terminal output
     def log_path(self):
         root = 'history/logs'
-        if self.args.prepruned_model:
-            self.logpath = f'./{root}/{self.args.dataname}/{self.args.arch}/'\
-                            f'trainedsparse/{self.curr_scen_name}'.replace('pth.tar','txt')
-        elif not self.args.prepruned_model:
-            if self.args.percent == 0 and self.args.pruning_strategy in {'lottery'}:
-                self.logpath = f'./{root}/{self.args.dataname}/{self.args.arch}/'\
-                               f'trainandtest/{self.curr_scen_name}.txt'
-            else:
-                self.logpath = f'./{root}/{self.args.dataname}/{self.args.arch}/'\
-                            f'pruned/{self.curr_scen_name}.txt'
+        self.logpath = f'./{root}/{self.args.dataname}/{self.args.arch}/'\
+                               f'{self.curr_scen_name}.txt'
 
     #creates folders under which each scenario's output is logged
     def logfolders(self):
@@ -57,9 +48,7 @@ class Directories(object):
                     if self.args.arch == ar:
                         if not os.path.exists(f'./{root}/{d}/{ar}'): 
                             os.makedirs(f'./{root}/{d}/{ar}') 
-                        for j in self.level_1:
-                            if not os.path.exists(f'./{root}/{d}/{ar}/{j}'):
-                                os.makedirs(f'./{root}/{d}/{ar}/{j}')
+                        
     
     #creates folders that saves pruned models at different stage of pruning
     def saved_pruned_model_folders(self):
@@ -79,17 +68,11 @@ class Directories(object):
                         # for i in range(100): print(path, file_name)
                         self.folder_builder(f'{path}/{file_name}', self.scen_time)
                     
-                        if not self.args.prepruned_model: #self.args.percent != 0 and 
-                            if not os.path.exists(f'./{root}/{d}/{ar}/saved_at_each_stage_of_pruning'): 
-                                os.makedirs(f'./{root}/{d}/{ar}/saved_at_each_stage_of_pruning')
-                            path = f'./{root}/{d}/{ar}/saved_at_each_stage_of_pruning'
-                            self.folder_builder(path, self.scen_time)
+                        if not os.path.exists(f'./{root}/{d}/{ar}/saved_end_of_training'): 
+                            os.makedirs(f'./{root}/{d}/{ar}/saved_end_of_training')
+                        path = f'./{root}/{d}/{ar}/saved_end_of_training'
+                        self.folder_builder(path, self.scen_time)
 
-                        elif self.args.prepruned_model:
-                            #training a sparse model
-                            file_name = 'saved_retrained_prepruned_net_at_each_stage'
-                            self.folder_builder(path, file_name)
-                            self.folder_builder(f'{path}/{file_name}', self.scen_time) 
     
     #creates folders saving numpy variables including loss, parameters, etc. 
     def numpyfolders(self):

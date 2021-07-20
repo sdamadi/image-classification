@@ -62,29 +62,24 @@ def main():
         outputwriter = Outputwriter(model, traval, writer, args,
                                     scenario.curr_scen_name)
 
-    p = 0
-    # find the value of pi
-    s = 0
-    torch.pi = torch.acos(-torch.ones(1)).item()
-    for stage in range(0, 1 if args.stages == 0 else args.stages + args.initial_stage):
+   
+    if args.local_rank == 0:
+        outputwriter.net_params_init()
 
-        if stage == 0 and args.local_rank == 0:
-            outputwriter.net_params_init()
+    for epoch in range(args.initial_epoch, args.epochs):
+        if args.distributed :
+            train_sampler.set_epoch(epoch)
 
-        for epoch in range(0, args.epochs):
-            if args.distributed :#and args.dataname == 'imagenet'
-                train_sampler.set_epoch(epoch)
+        #train for one epoch
+        traval.train(epoch)        
+        traval.validation(epoch, report=True)
+    
+    traval.best_values(epoch)
+    traval.stage_quantities()
 
-            #train for one epoch
-            traval.train(epoch, stage)        
-            traval.validation(epoch, stage, report=True)
-        
-        traval.best_values(stage)
-        traval.stage_quantities()
-
-        # saves pruned params
-        if args.local_rank == 0:
-            outputwriter.net_params(stage)
+    # saves params
+    if args.local_rank == 0:
+        outputwriter.net_params()
             
     if args.local_rank == 0:
         writer.close()
