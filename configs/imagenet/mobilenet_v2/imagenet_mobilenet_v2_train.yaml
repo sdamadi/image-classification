@@ -1,4 +1,4 @@
-# python -m torch.distributed.launch --nproc_per_node=4 --master_port=$RANDOM main.py -a mobilenet_v2 --dataname imagenet --config imagenet_mobilenet_v2_train
+# python -m torch.distributed.launch --nproc_per_node=4 --master_port=$RANDOM main.py -a mobilenet_v2 --dataname imagenet --config imagenet_mobilenet_v2_train --logterminal
 # ===== Configuration ===== #
 config: imagenet_mobilenet_v2_train
 # ===== Architecture ===== #

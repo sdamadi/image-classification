@@ -32,40 +32,6 @@ normal_exp_scale: 1500
 momentum: 0.9
 nesterov: False
 evaluate: False
-# ===== Pruning ======== #
-prepruned_model: False
-prepruned_scen: ''
-nonpruned_percent: 0
-pruning_strategy: 'lottery'
-quantize-prepruned: False
-quantize-bias: True
-local_quant: False
-prune_bias: False
-prune_bn: False
-initial_stage: 0
-stages: 50
-# ===== Asni ======== #
-asni_mode: 'sigmoid'
-asni_perc_max: 100
-asni_sin_scale: 16
-asni_sin_exponent: 1
-asni_sin_mag: 100
-asni_sigmoid_mag_1: 90
-asni_sigmoid_trans_1: 0.5
-asni_sigmoid_scale_1: 5
-asni_sigmoid_mag_2: 10
-asni_sigmoid_trans_2: 0.5
-asni_sigmoid_scale_2: 2
-# ===== Lottery ======== #
-percent: 0
-local_prune: False
-# ===== STR ======== #
-init_threshold: -10
-init_threshold_type: 'constant'
-str-nonlinear: 'sigmoid'
-str-activation: 'relu'
-# ===== RigL ======== #
-# ===== SNIP ======== #
 # ===== Distributed processing ======== #
 gpu_idx: '0'
 local_rank: 0 

@@ -1,0 +1,53 @@
+
+========> The following is the setup for this run:
+
+2021_7_29_15_34_14_data_cifar10_arch_resnet18_init_kaimingn_GPUs_1_minib_128_opt_SGD+M_lr_0.1_lrpolicy_multistep_lr_ep_1
+
+arch: resnet18
+pretrained: False
+resume: 
+dataname: cifar10
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 128
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+initial_epoch: 0
+label_smoothing: 0.0
+weight_decay: 0.0001
+lr: 0.1
+lr_policy: multistep_lr
+warmup_length: 0
+lr_gamma: 0.1
+lr_steps: [80, 120]
+lowest_lr: 0.001
+scale_coslr: 1.02
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.9
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar10_resnet18_train
+logterminal: True
+save_stages: False
+gpu_idx: ['2']
+local_rank: 0
+channels_last: False
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 36646.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['2'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 2 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+=> The model, i.e., resnet18, is being replicated on 1 processes.
+

@@ -16,8 +16,7 @@ class Directories(object):
                         'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
                         'mobilenet_v2']
 
-        self.level_1 = ['trainandtest', ]
-        self.level_2 = ['main'] 
+        self.level_1 = ['main'] 
 
 
         # extract the time and name of the scenario from `curr_scen_name`
@@ -88,9 +87,6 @@ class Directories(object):
                         for j in self.level_1:
                             if not os.path.exists(f'./{root}/{d}/{ar}/{j}'): 
                                 os.makedirs(f'./{root}/{d}/{ar}/{j}') 
-                            for k in self.level_2:
-                                if not os.path.exists(f'./{root}/{d}/{ar}/{j}/{k}'):
-                                    os.makedirs(f'./{root}/{d}/{ar}/{j}/{k}')
                                
     
     def time_remover(self, curr_scen_name):

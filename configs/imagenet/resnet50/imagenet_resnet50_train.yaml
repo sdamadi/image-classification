@@ -1,4 +1,4 @@
-# python -m torch.distributed.launch --nproc_per_node=5 --master_port=$RANDOM main.py -a resnet50 --dataname imagenet --config imagenet_resnet50_train
+# python -m torch.distributed.launch --nproc_per_node=5 --master_port=$RANDOM main.py -a resnet50 --dataname imagenet --config imagenet_resnet50_train --logterminal
 # ===== Configuration ===== #
 config: imagenet_resnet50_train
 # ===== Architecture ===== #
@@ -32,31 +32,6 @@ normal_exp_scale: 1500
 momentum: 0.9
 nesterov: False
 evaluate: False
-# ===== Pruning ======== #
-prepruned_model: False
-prepruned_scen: ''
-nonpruned_percent: 0
-pruning_strategy: 'lottery'
-# ===== Asni ======== #
-asni_sin_scale: 16
-asni_sin_exponent: 1
-asni_sin_mag: 100
-asni_perc_max: 100
-# ===== Lottery ======== #
-percent: 0
-local_prune: False
-# ===== STR ======== #
-init_threshold: -10
-init_threshold_type: 'constant'
-str-nonlinear: 'sigmoid'
-str-activation: 'relu'
-# ===== RigL ======== #
-# ===== SNIP ======== #
-initial_stage: 0
-stages: 90
-prune_bias: False
-prune_bn: False
-local_quant: False
 # ===== Distributed processing ======== #
 gpu_idx: '34567'
 local_rank: 0 

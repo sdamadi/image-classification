@@ -1,4 +1,4 @@
-# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a vgg19 --dataname cifar100 --config cifar100_vgg19_train
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a vgg19 --dataname cifar100 --config cifar100_vgg19_train --logterminal
 # ===== Configuration ===== #
 config: cifar100_vgg19_train
 # ===== Architecture ===== #
@@ -44,3 +44,4 @@ channels_last: False
 # ===== Logging ======== #
 print_freq_tr: 10
 print_freq_ts: 10
+logterminal: False

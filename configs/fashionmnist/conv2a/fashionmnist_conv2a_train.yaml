@@ -1,46 +1,41 @@
-# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv2a --dataname fashionmnist --config fashionmnist_conv2a_train
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv2a --dataname fashionmnist --config fashionmnist_conv2a_train --logterminal
 # ===== Configuration ===== #
 config: fashionmnist_conv2a_train
 # ===== Architecture ===== #
 arch: 'conv2a'
 pretrained: False
+resume: ''
 # ===== Dataset ===== #
 dataname: 'fashionmnist'
 datapath: './data/fashionmnist/'
 workers: 20
-batch_size: 512
+batch_size: 60
 # ===== Initialization ===== #
 init_policy: 'kaimingn'
 init_kaiming_mode: 'fan_in'
 init_kaiming_nonlinearity: 'relu'
 init_bias: 'zero'
 # ===== Optimization ======== #
-optimizer: 'SGD+M'
+optimizer: 'Adam'
 epochs: 1
 label_smoothing: 0.0
 weight_decay: 0.0
-lr: 0.128
-lr_policy: 'cosine_lr'
+lr: 0.0002
+lr_policy: 'constant_lr'
 warmup_length: 0
-lr_step: 0
+lr_steps: 
 lr_gamma: 0.0
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
 momentum: 0.0
 nesterov: False
 evaluate: False
-# ===== Pruning ======== #
-prepruned_model: False
-pruning_strategy: 'lottery'
-percent: 0
-initial_stage: 0
-stages: 20
-local_prune: False
-prune_bias: False
-prune_bn: False
-local_quant: False
 # ===== Distributed processing ======== #
-gpu_idx: '0'
+gpu_idx: '5'
 local_rank: 0 
 channels_last: False
 # ===== Logging ======== #
 print_freq_tr: 10
 print_freq_ts: 10
+logterminal: False

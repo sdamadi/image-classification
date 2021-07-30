@@ -1,0 +1,193 @@
+
+========> The following is the setup for this run:
+
+2021_7_29_20_22_44_data_cifar100_arch_resnet34_init_kaimingn_GPUs_1_minib_128_opt_SGD+M_lr_0.05_lrpolicy_cosine_lr_ep_1
+
+arch: resnet34
+pretrained: False
+resume: 
+dataname: cifar100
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 128
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+initial_epoch: 0
+label_smoothing: 0.0
+weight_decay: 0.0005
+lr: 0.05
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1.06
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar100_resnet34_train
+logterminal: True
+save_stages: False
+gpu_idx: ['5']
+local_rank: 0
+channels_last: False
+lr_step: 0
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 52854.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['5'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 5 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+Files already downloaded and verified
+=> The model, i.e., resnet34, is being replicated on 1 processes.
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/ 391] | Time(avg): 2.10 | Speed: (pics/sec):   608
+Learning rate: 0.05000000 | Curr loss: 7.4433 | Avg loss: 8.5187 | Prec@1(avg) 0.55 % | Prec@5(avg) 1.64 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/ 391] | Time(avg): 1.31 | Speed: (pics/sec):   977
+Learning rate: 0.05000000 | Curr loss: 6.1046 | Avg loss: 7.6471 | Prec@1(avg) 0.94 % | Prec@5(avg) 3.55 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/ 391] | Time(avg): 1.07 | Speed: (pics/sec):  1198
+Learning rate: 0.05000000 | Curr loss: 5.5098 | Avg loss: 7.0386 | Prec@1(avg) 1.20 % | Prec@5(avg) 4.35 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/ 391] | Time(avg): 0.93 | Speed: (pics/sec):  1372
+Learning rate: 0.05000000 | Curr loss: 5.4491 | Avg loss: 6.6722 | Prec@1(avg) 1.23 % | Prec@5(avg) 4.82 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/ 391] | Time(avg): 0.85 | Speed: (pics/sec):  1498
+Learning rate: 0.05000000 | Curr loss: 5.4401 | Avg loss: 6.3994 | Prec@1(avg) 1.36 % | Prec@5(avg) 5.14 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  60/ 391] | Time(avg): 0.80 | Speed: (pics/sec):  1603
+Learning rate: 0.05000000 | Curr loss: 5.4245 | Avg loss: 6.2109 | Prec@1(avg) 1.39 % | Prec@5(avg) 5.56 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  70/ 391] | Time(avg): 0.76 | Speed: (pics/sec):  1678
+Learning rate: 0.05000000 | Curr loss: 5.1215 | Avg loss: 6.0502 | Prec@1(avg) 1.40 % | Prec@5(avg) 5.58 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  80/ 391] | Time(avg): 0.74 | Speed: (pics/sec):  1734
+Learning rate: 0.05000000 | Curr loss: 5.0245 | Avg loss: 5.9160 | Prec@1(avg) 1.43 % | Prec@5(avg) 5.76 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  90/ 391] | Time(avg): 0.72 | Speed: (pics/sec):  1782
+Learning rate: 0.05000000 | Curr loss: 4.8552 | Avg loss: 5.8058 | Prec@1(avg) 1.49 % | Prec@5(avg) 5.91 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 100/ 391] | Time(avg): 0.70 | Speed: (pics/sec):  1824
+Learning rate: 0.05000000 | Curr loss: 4.8445 | Avg loss: 5.7121 | Prec@1(avg) 1.59 % | Prec@5(avg) 6.23 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 110/ 391] | Time(avg): 0.69 | Speed: (pics/sec):  1857
+Learning rate: 0.05000000 | Curr loss: 4.8907 | Avg loss: 5.6335 | Prec@1(avg) 1.63 % | Prec@5(avg) 6.42 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 120/ 391] | Time(avg): 0.68 | Speed: (pics/sec):  1886
+Learning rate: 0.05000000 | Curr loss: 4.8170 | Avg loss: 5.5656 | Prec@1(avg) 1.67 % | Prec@5(avg) 6.55 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 130/ 391] | Time(avg): 0.67 | Speed: (pics/sec):  1913
+Learning rate: 0.05000000 | Curr loss: 4.8017 | Avg loss: 5.5044 | Prec@1(avg) 1.71 % | Prec@5(avg) 6.69 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 140/ 391] | Time(avg): 0.66 | Speed: (pics/sec):  1940
+Learning rate: 0.05000000 | Curr loss: 4.8038 | Avg loss: 5.4528 | Prec@1(avg) 1.79 % | Prec@5(avg) 6.87 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 150/ 391] | Time(avg): 0.65 | Speed: (pics/sec):  1956
+Learning rate: 0.05000000 | Curr loss: 4.8985 | Avg loss: 5.4038 | Prec@1(avg) 1.82 % | Prec@5(avg) 7.11 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 160/ 391] | Time(avg): 0.65 | Speed: (pics/sec):  1974
+Learning rate: 0.05000000 | Curr loss: 4.5152 | Avg loss: 5.3597 | Prec@1(avg) 1.86 % | Prec@5(avg) 7.31 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 170/ 391] | Time(avg): 0.64 | Speed: (pics/sec):  1989
+Learning rate: 0.05000000 | Curr loss: 4.8093 | Avg loss: 5.3214 | Prec@1(avg) 1.86 % | Prec@5(avg) 7.47 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 180/ 391] | Time(avg): 0.64 | Speed: (pics/sec):  2003
+Learning rate: 0.05000000 | Curr loss: 4.6524 | Avg loss: 5.2834 | Prec@1(avg) 1.84 % | Prec@5(avg) 7.66 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 190/ 391] | Time(avg): 0.63 | Speed: (pics/sec):  2017
+Learning rate: 0.05000000 | Curr loss: 4.4526 | Avg loss: 5.2503 | Prec@1(avg) 1.90 % | Prec@5(avg) 7.81 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 200/ 391] | Time(avg): 0.63 | Speed: (pics/sec):  2029
+Learning rate: 0.05000000 | Curr loss: 4.4867 | Avg loss: 5.2189 | Prec@1(avg) 1.91 % | Prec@5(avg) 7.94 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 210/ 391] | Time(avg): 0.63 | Speed: (pics/sec):  2040
+Learning rate: 0.05000000 | Curr loss: 4.6857 | Avg loss: 5.1943 | Prec@1(avg) 1.92 % | Prec@5(avg) 8.03 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 220/ 391] | Time(avg): 0.62 | Speed: (pics/sec):  2052
+Learning rate: 0.05000000 | Curr loss: 4.4991 | Avg loss: 5.1697 | Prec@1(avg) 1.94 % | Prec@5(avg) 8.15 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 230/ 391] | Time(avg): 0.62 | Speed: (pics/sec):  2062
+Learning rate: 0.05000000 | Curr loss: 4.6557 | Avg loss: 5.1462 | Prec@1(avg) 1.97 % | Prec@5(avg) 8.29 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 240/ 391] | Time(avg): 0.62 | Speed: (pics/sec):  2070
+Learning rate: 0.05000000 | Curr loss: 4.6201 | Avg loss: 5.1255 | Prec@1(avg) 2.00 % | Prec@5(avg) 8.48 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 250/ 391] | Time(avg): 0.62 | Speed: (pics/sec):  2076
+Learning rate: 0.05000000 | Curr loss: 4.5519 | Avg loss: 5.1056 | Prec@1(avg) 2.01 % | Prec@5(avg) 8.61 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 260/ 391] | Time(avg): 0.62 | Speed: (pics/sec):  2080
+Learning rate: 0.05000000 | Curr loss: 4.5967 | Avg loss: 5.0850 | Prec@1(avg) 2.06 % | Prec@5(avg) 8.77 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 270/ 391] | Time(avg): 0.61 | Speed: (pics/sec):  2089
+Learning rate: 0.05000000 | Curr loss: 4.5061 | Avg loss: 5.0675 | Prec@1(avg) 2.11 % | Prec@5(avg) 8.90 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 280/ 391] | Time(avg): 0.61 | Speed: (pics/sec):  2100
+Learning rate: 0.05000000 | Curr loss: 4.4524 | Avg loss: 5.0503 | Prec@1(avg) 2.13 % | Prec@5(avg) 8.98 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 290/ 391] | Time(avg): 0.61 | Speed: (pics/sec):  2110
+Learning rate: 0.05000000 | Curr loss: 4.6715 | Avg loss: 5.0339 | Prec@1(avg) 2.18 % | Prec@5(avg) 9.14 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 300/ 391] | Time(avg): 0.60 | Speed: (pics/sec):  2120
+Learning rate: 0.05000000 | Curr loss: 4.5479 | Avg loss: 5.0178 | Prec@1(avg) 2.22 % | Prec@5(avg) 9.28 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 310/ 391] | Time(avg): 0.60 | Speed: (pics/sec):  2130
+Learning rate: 0.05000000 | Curr loss: 4.5657 | Avg loss: 5.0021 | Prec@1(avg) 2.27 % | Prec@5(avg) 9.45 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 320/ 391] | Time(avg): 0.60 | Speed: (pics/sec):  2136
+Learning rate: 0.05000000 | Curr loss: 4.4830 | Avg loss: 4.9873 | Prec@1(avg) 2.32 % | Prec@5(avg) 9.59 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 330/ 391] | Time(avg): 0.60 | Speed: (pics/sec):  2145
+Learning rate: 0.05000000 | Curr loss: 4.5312 | Avg loss: 4.9739 | Prec@1(avg) 2.35 % | Prec@5(avg) 9.73 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 340/ 391] | Time(avg): 0.59 | Speed: (pics/sec):  2153
+Learning rate: 0.05000000 | Curr loss: 4.4638 | Avg loss: 4.9589 | Prec@1(avg) 2.38 % | Prec@5(avg) 9.89 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 350/ 391] | Time(avg): 0.59 | Speed: (pics/sec):  2156
+Learning rate: 0.05000000 | Curr loss: 4.3749 | Avg loss: 4.9471 | Prec@1(avg) 2.42 % | Prec@5(avg) 9.99 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 360/ 391] | Time(avg): 0.59 | Speed: (pics/sec):  2166
+Learning rate: 0.05000000 | Curr loss: 4.4654 | Avg loss: 4.9352 | Prec@1(avg) 2.43 % | Prec@5(avg) 10.12 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 370/ 391] | Time(avg): 0.59 | Speed: (pics/sec):  2175
+Learning rate: 0.05000000 | Curr loss: 4.4577 | Avg loss: 4.9245 | Prec@1(avg) 2.45 % | Prec@5(avg) 10.19 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 380/ 391] | Time(avg): 0.59 | Speed: (pics/sec):  2184
+Learning rate: 0.05000000 | Curr loss: 4.4103 | Avg loss: 4.9128 | Prec@1(avg) 2.49 % | Prec@5(avg) 10.31 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [ 390/ 391] | Time(avg): 0.58 | Speed: (pics/sec):  2193
+Learning rate: 0.05000000 | Curr loss: 4.4079 | Avg loss: 4.9009 | Prec@1(avg) 2.54 % | Prec@5(avg) 10.50 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  10/  79] | Time(avg): 0.92 | Speed: (pics/sec):  1389
+Curr loss: 4.2710 | Avg loss: 4.2849 | Prec@1(avg) 5.86 % | Prec@5(avg) 18.98 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  20/  79] | Time(avg): 0.51 | Speed: (pics/sec):  2493
+Curr loss: 4.1987 | Avg loss: 4.2817 | Prec@1(avg) 6.05 % | Prec@5(avg) 19.65 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  30/  79] | Time(avg): 0.37 | Speed: (pics/sec):  3423
+Curr loss: 4.3494 | Avg loss: 4.2629 | Prec@1(avg) 5.91 % | Prec@5(avg) 20.03 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  40/  79] | Time(avg): 0.31 | Speed: (pics/sec):  4177
+Curr loss: 4.2214 | Avg loss: 4.2585 | Prec@1(avg) 6.35 % | Prec@5(avg) 20.27 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  50/  79] | Time(avg): 0.26 | Speed: (pics/sec):  4875
+Curr loss: 4.1687 | Avg loss: 4.2556 | Prec@1(avg) 6.28 % | Prec@5(avg) 20.30 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  60/  79] | Time(avg): 0.23 | Speed: (pics/sec):  5489
+Curr loss: 4.3496 | Avg loss: 4.2605 | Prec@1(avg) 6.35 % | Prec@5(avg) 19.92 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  70/  79] | Time(avg): 0.21 | Speed: (pics/sec):  6032
+Curr loss: 4.1688 | Avg loss: 4.2653 | Prec@1(avg) 6.26 % | Prec@5(avg) 20.02 %
+

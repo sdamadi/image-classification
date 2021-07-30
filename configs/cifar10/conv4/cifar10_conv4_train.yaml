@@ -1,4 +1,4 @@
-# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv4 --dataname cifar10 --config cifar10_conv4_train
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv4 --dataname cifar10 --config cifar10_conv4_train --logterminal
 # ===== Configuration ===== #
 config: cifar10_conv4_train
 # ===== Architecture ===== #
@@ -44,3 +44,4 @@ channels_last: False
 # ===== Logging ======== #
 print_freq_tr: 10
 print_freq_ts: 10
+logterminal: False

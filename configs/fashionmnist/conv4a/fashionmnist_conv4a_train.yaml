@@ -1,11 +1,11 @@
-# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv4a --dataname fashionmnist --config fashionmnist_conv4a_train
+# python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a conv4a --dataname fashionmnist --config fashionmnist_conv4a_train --logterminal
 # ===== Configuration ===== #
 config: fashionmnist_conv4a_train
 # ===== Architecture ===== #
 arch: 'conv4a'
 pretrained: False
 # ===== Dataset ===== #
-dataname: 'fashionmnist'
+dataname: 'mnist'
 datapath: './data/fashionmnist/'
 workers: 20
 batch_size: 512
@@ -27,16 +27,6 @@ lr_gamma: 0.0
 momentum: 0.0
 nesterov: False
 evaluate: False
-# ===== Pruning ======== #
-prepruned_model: False
-pruning_strategy: 'lottery'
-percent: 0
-initial_stage: 0
-stages: 20
-local_prune: False
-prune_bias: False
-prune_bn: False
-local_quant: False
 # ===== Distributed processing ======== #
 gpu_idx: '0'
 local_rank: 0 
@@ -44,3 +34,4 @@ channels_last: False
 # ===== Logging ======== #
 print_freq_tr: 10
 print_freq_ts: 10
+logterminal: False

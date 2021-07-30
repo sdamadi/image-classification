@@ -304,16 +304,9 @@ class TraVal(object):
     def close(self):
         root = 'history/variables'
 
-        if self.args.pruning_strategy == 'lottery' and self.args.percent == 0 and not self.args.prepruned_model:
-            self.mode = 'trainandtest'
-        # elif self.args.percent == 0 and self.args.prepruned_model:
-        elif self.args.prepruned_model:
-            self.mode = 'trainedsparse'
-        elif self.args.pruning_strategy in {'asni', 'lottery', 'str'} and not self.args.prepruned_model:
-            self.mode = 'pruned'
 
         # scen_name, scen_time = self.time_remover(self.curr_scen_name)
-        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/{self.mode}/main'
+        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/main'
         self.folder_builder(path = path1, folder_name = self.scen_time)
         path = f'{path1}/{self.scen_time}/'
 

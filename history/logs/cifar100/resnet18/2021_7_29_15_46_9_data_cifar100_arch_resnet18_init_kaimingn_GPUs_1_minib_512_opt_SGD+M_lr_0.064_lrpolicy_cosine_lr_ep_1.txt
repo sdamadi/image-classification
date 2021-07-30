@@ -1,0 +1,99 @@
+
+========> The following is the setup for this run:
+
+2021_7_29_15_46_9_data_cifar100_arch_resnet18_init_kaimingn_GPUs_1_minib_512_opt_SGD+M_lr_0.064_lrpolicy_cosine_lr_ep_1
+
+arch: resnet18
+pretrained: False
+resume: 
+dataname: cifar100
+datapath: ./data/cifar10/
+workers: 20
+batch_size: 512
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+initial_epoch: 0
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.064
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: cifar100_resnet34_train
+logterminal: True
+save_stages: False
+gpu_idx: ['0']
+local_rank: 0
+channels_last: False
+lr_step: 0
+prepruned_model: False
+pruning_strategy: lottery
+percent: 0
+initial_stage: 0
+stages: 10
+local_prune: False
+prune_bias: False
+prune_bn: False
+local_quant: False
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 39003.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+
+Files already downloaded and verified
+Files already downloaded and verified
+=> The model, i.e., resnet18, is being replicated on 1 processes.
+
+=> The model, i.e., resnet18, is being replicated on 1 processes.
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/  98] | Time(avg): 2.95 | Speed: (pics/sec):  1738
+Learning rate: 0.06400000 | Curr loss: 6.4806 | Avg loss: 7.3716 | Prec@1(avg) 0.49 % | Prec@5(avg) 2.54 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/  98] | Time(avg): 1.73 | Speed: (pics/sec):  2963
+Learning rate: 0.06400000 | Curr loss: 5.6244 | Avg loss: 6.6400 | Prec@1(avg) 1.08 % | Prec@5(avg) 4.72 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/  98] | Time(avg): 1.36 | Speed: (pics/sec):  3778
+Learning rate: 0.06400000 | Curr loss: 5.1435 | Avg loss: 6.1993 | Prec@1(avg) 1.49 % | Prec@5(avg) 6.25 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/  98] | Time(avg): 1.16 | Speed: (pics/sec):  4424
+Learning rate: 0.06400000 | Curr loss: 4.8884 | Avg loss: 5.9086 | Prec@1(avg) 1.57 % | Prec@5(avg) 6.88 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/  98] | Time(avg): 1.04 | Speed: (pics/sec):  4936
+Learning rate: 0.06400000 | Curr loss: 4.7629 | Avg loss: 5.6951 | Prec@1(avg) 1.75 % | Prec@5(avg) 7.46 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  60/  98] | Time(avg): 0.95 | Speed: (pics/sec):  5366
+Learning rate: 0.06400000 | Curr loss: 4.6864 | Avg loss: 5.5338 | Prec@1(avg) 2.01 % | Prec@5(avg) 8.21 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  70/  98] | Time(avg): 0.89 | Speed: (pics/sec):  5766
+Learning rate: 0.06400000 | Curr loss: 4.5960 | Avg loss: 5.4098 | Prec@1(avg) 2.23 % | Prec@5(avg) 8.70 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  80/  98] | Time(avg): 0.84 | Speed: (pics/sec):  6124
+Learning rate: 0.06400000 | Curr loss: 4.4545 | Avg loss: 5.3079 | Prec@1(avg) 2.36 % | Prec@5(avg) 9.36 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  90/  98] | Time(avg): 0.80 | Speed: (pics/sec):  6437
+Learning rate: 0.06400000 | Curr loss: 4.4886 | Avg loss: 5.2232 | Prec@1(avg) 2.49 % | Prec@5(avg) 9.83 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  10/  20] | Time(avg): 0.98 | Speed: (pics/sec):  5235
+Curr loss: 4.3292 | Avg loss: 4.3119 | Prec@1(avg) 5.21 % | Prec@5(avg) 19.57 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  20/  20] | Time(avg): 0.67 | Speed: (pics/sec):  7660
+Curr loss: 4.2735 | Avg loss: 4.3046 | Prec@1(avg) 5.28 % | Prec@5(avg) 19.81 %
+

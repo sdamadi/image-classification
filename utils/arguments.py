@@ -62,28 +62,6 @@ def parse():
     parser.add_argument('--nesterov', help='Nesterov momentum', action='store_true')
     parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
                         help='evaluate model on validation set')
-    # ===== Pruning ======== #
-    parser.add_argument('--initial-stage', type=int, default=0,
-                        help='initial stage of pruning (useful on restarts)')
-    parser.add_argument('--stages', '-s',type=int, help='total stages for pruning or training', default=2)
-    parser.add_argument('--prepruned-model', action='store_true',
-                        help='whether pruned model should be traind or not') 
-    parser.add_argument('--quantize-prepruned', action='store_true',
-                        help='whether the prepruned model should be quantized to c+ and c_')
-    parser.add_argument('--quantize-bias', action='store_true',
-                        help='whether biases of the prepruned model should be quantized or not')  
-    parser.add_argument('--prepruned-scen', default='', type=str,
-                            help='the date and time of prepruned scenario')
-    parser.add_argument('--pruning-strategy', default='asni', type=str,
-                            help='prepruned | quantize | asni | lottery | str | snip')
-    parser.add_argument('--nonpruned-percent', default=99.8, type=float, metavar='M',
-                        help='Percentage of nonpruned parameters')
-    parser.add_argument('--mask-stage', default=0, type=int, metavar='M',
-                        help='stage whose mask is used for reinitialization')
-    parser.add_argument('--prune-bn', help='prune batch norm elements', action='store_true')
-    parser.add_argument('--prune-bias', help='prune bias elements', action='store_true')
-    parser.add_argument('--local-quant', help='quantization type (network-wise|layer-wise)',
-    action='store_true')
     # ===== Logging ======== #
     parser.add_argument('--print-freq-tr', default=10, type=int,
                         metavar='N', help='train print frequency (default: 10)')
