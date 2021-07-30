@@ -2,20 +2,19 @@
 # run the following to run 5 different process
 # ./runners/mnist/fc/mnist_fc_train_explore.sh
 
-# $(seq 0 4)
-
-for i in $(seq 0 2)
+for i in $(seq 0 4)
 do    
 python -m torch.distributed.launch --nproc_per_node=1 \
 --master_port=$RANDOM main.py \
 -a fc --dataname mnist \
 --optimizer SGD+M \
---lr-policy cosine_lr \
---lr 0.001 \
+--lr-policy constant_lr \
+--lr 0.0012 \
 --batch-size 60 \
+--epochs 50 \
 --gpu-idx $i \
 --config mnist_fc_train &
-sleep 3
+sleep 5
 done
 
 

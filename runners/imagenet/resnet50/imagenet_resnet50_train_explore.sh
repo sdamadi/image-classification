@@ -8,9 +8,9 @@ python -m torch.distributed.launch --nproc_per_node=4 \
 --master_port=$RANDOM main.py -a resnet50 --dataname imagenet \
 --optimizer SGD+M \
 --lr-policy cosine_lr \
---lr 0.128 \
+--lr 0.35 \
 --label-smoothing 0 \
---scale-coslr 1.04 \
+--scale-coslr 1.02 \
 --weight-decay 0.0001 \
 --batch-size 205 \
 --gpu-idx 0 1 2 3 \

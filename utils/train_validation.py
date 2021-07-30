@@ -136,7 +136,6 @@ class TraVal(object):
                 if self.args.local_rank == 0:
                     self.curr_throughput_tr = self.args.world_size*self.args.batch_size/self.batch_time_tr.val
                     self.avg_throughput_tr = self.args.world_size*self.args.batch_size/self.batch_time_tr.avg
-                    
 
                     print(
                         f'Training: Num of GPUs:{self.args.world_size:2} | '\
@@ -144,7 +143,7 @@ class TraVal(object):
                         f'[{i:4}/{len(self.train_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_tr*self.batch_time_tr.avg:4.2f} | '\
                         f'Speed: (pics/sec): {self.avg_throughput_tr:5.0f}\n'\
-                        f'Learning rate: {self.lr:9.8f} | '\
+                        f'Learning rate: {self.lr:5.4f} | '\
                         f'Curr loss: {self.losses_tr.val:5.4f} | '\
                         f'Avg loss: {self.losses_tr.avg:5.4f} | '\
                         f'Prec@1(avg) {self.top1_tr.avg:4.2f} % | '\

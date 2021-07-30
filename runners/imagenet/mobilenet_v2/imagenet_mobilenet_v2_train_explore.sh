@@ -1,13 +1,6 @@
-# MOBILENET_V2
-# TRAIN
+# Training an MOBILENETV2 network on IMAGENET1K
+# run the following to run 5 different process
 # ./runners/imagenet/mobilenet_v2/imagenet_mobilenet_v2_train_explore.sh
-
-# --asni-sigmoid-scale-1 12 \
-# --asni-sigmoid-mag-1 92.5 \
-# --asni-sigmoid-trans-1 0.5 \
-# --asni-perc-max 90 \
-# --save-stages \
-# --asni-mode sigmoid \
 
 
 python -m torch.distributed.launch --nproc_per_node=4 \
@@ -19,10 +12,7 @@ python -m torch.distributed.launch --nproc_per_node=4 \
 --scale-coslr 1.02 \
 --weight-decay 0.00004 \
 --batch-size 205 \
---stages 150 \
---asni-rest-stage 150 \
 --gpu-idx 0 1 2 3 \
---pruning-strategy lottery \
 --logterminal \
 --config imagenet_mobilenet_v2_train 
 
