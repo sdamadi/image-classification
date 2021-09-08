@@ -1,4 +1,17 @@
-### Comprehensive image classification library 
+## Comprehensive image classification library 
+### Why you should this repository?
+
+- [Native Pytorch Automatic Mixed Precision (AMP)](https://github.com/sdamadi/image-classification/blob/main/README/automatic_mixed_precision.md) 
+- Decentralization of training on multiple GPUs
+- Assigning folders named with the time of execution for the followings:
+  - Training and test logs as text
+  - Initial and final checkpoints
+  - Training and test statistices as Numpy variables
+  - Tensorboard logs
+- Various learning rate schedulers
+- Hyperparamters are given as a `config` file
+
+
 This repository is meant to serve people who want to generate results of image classification and [compare different outputs](put a table and explain it is the average of five runs) on [various networks and datasets](https://github.com/sdamadi/image-classification/blob/main/README/combinations.md). The following are capabilities of this repository:
 
 1. It utilizes [native Pytorch Automatic Mixed Precision (AMP)](https://pytorch.org/blog/accelerating-training-on-nvidia-gpus-with-pytorch-automatic-mixed-precision/) for fast training (the speed is doubled at least). 
