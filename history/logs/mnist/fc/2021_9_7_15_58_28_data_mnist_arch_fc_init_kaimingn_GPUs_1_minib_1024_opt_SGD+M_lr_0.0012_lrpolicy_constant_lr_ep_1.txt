@@ -1,0 +1,70 @@
+
+========> The following is the setup for this run:
+
+2021_9_7_15_58_28_data_mnist_arch_fc_init_kaimingn_GPUs_1_minib_1024_opt_SGD+M_lr_0.0012_lrpolicy_constant_lr_ep_1
+
+arch: fc
+pretrained: False
+resume: 
+dataname: mnist
+datapath: ./data/mnist/
+workers: 20
+batch_size: 1024
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 1
+initial_epoch: 0
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0012
+lr_policy: constant_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: mnist_fc_train
+logterminal: True
+save_stages: False
+gpu_idx: ['0']
+local_rank: 0
+channels_last: False
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 1120.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+
+=> The model, i.e., fc, is being replicated on 1 processes.
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  10/  59] | Time(avg): 2.19 | Speed: (pics/sec):  4672
+Learning rate: 0.0012 | Curr loss: 2.5765 | Avg loss: 2.6532 | Prec@1(avg) 11.08 % | Prec@5(avg) 56.04 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  20/  59] | Time(avg): 1.79 | Speed: (pics/sec):  5711
+Learning rate: 0.0012 | Curr loss: 2.4324 | Avg loss: 2.5657 | Prec@1(avg) 12.28 % | Prec@5(avg) 57.87 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  30/  59] | Time(avg): 1.71 | Speed: (pics/sec):  5999
+Learning rate: 0.0012 | Curr loss: 2.3019 | Avg loss: 2.4855 | Prec@1(avg) 13.51 % | Prec@5(avg) 60.04 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  40/  59] | Time(avg): 1.65 | Speed: (pics/sec):  6222
+Learning rate: 0.0012 | Curr loss: 2.1721 | Avg loss: 2.4157 | Prec@1(avg) 14.72 % | Prec@5(avg) 62.23 %
+
+Training: Num of GPUs: 1 | Epoch: [ 1/ 1] | [  50/  59] | Time(avg): 1.50 | Speed: (pics/sec):  6812
+Learning rate: 0.0012 | Curr loss: 2.0555 | Avg loss: 2.3529 | Prec@1(avg) 16.12 % | Prec@5(avg) 64.58 %
+
+Validation: Epoch: [ 1/ 1] | Seen data: [  10/  10] | Time(avg): 1.29 | Speed: (pics/sec):  7921
+Curr loss: 2.0259 | Avg loss: 1.9579 | Prec@1(avg) 27.36 % | Prec@5(avg) 80.18 %
+

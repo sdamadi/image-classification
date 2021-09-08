@@ -74,7 +74,6 @@ def main():
         traval.train(epoch)        
         traval.validation(epoch, report=True)
     
-    traval.best_values(epoch)
     traval.stage_quantities()
 
     # saves params

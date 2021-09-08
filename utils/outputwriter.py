@@ -43,7 +43,7 @@ class Outputwriter(object):
     def close(self):
         root = 'history/variables'
 
-        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/main'
+        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/'
         self.folder_builder(path = path1, folder_name = self.scen_time)
         path = f'{path1}/{self.scen_time}/'
 

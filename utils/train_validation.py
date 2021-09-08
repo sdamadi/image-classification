@@ -31,16 +31,10 @@ class TraVal(object):
         self.step = 0
 
         self.grad_norm = 0
-        self.delta_dot_grad = 0
-        self.delta2 = 0
 
         self.GradNorm = []
         self.TrainingLoss, self.TrainingTop1, self.TrainingTop5 = ( [] for i in range(3) )
         self.TestLoss, self.TestTop1, self.TestTop5 = ( [] for i in range(3) )
-        self.best_loss_test, self.best_top1_test  = np.inf, 0
-        self.Best_Stage, self.Best_Loss_Test, self.Best_Top1_Test = ([] for i in range(3) )
-        self.golden = False
-        self.global_threshold = 0
         self.Learning_Rate = [self.args.lr]
         self.curr_scen_name = curr_scen_name
         if args.local_rank == 0:
@@ -273,28 +267,8 @@ class TraVal(object):
 
             self.TestLoss.append( self.losses_ts.avg )
             self.TestTop1.append( self.top1_ts.avg )
-            self.TestTop5.append( self.top5_ts.avg )   
-
-    def best_values(self, epoch):
-
-        if self.args.local_rank == 0:
-
-            self.golden = False
-
-            if self.losses_ts.avg < self.best_loss_test:
-                self.best_loss_test = self.losses_ts.avg 
-                if self.best_top1_test < self.top1_ts.avg:
-                    self.best_top1_test = self.top1_ts.avg
-                    
-                # save the best network with quantized parameters
-                self.golden = True
+            self.TestTop5.append( self.top5_ts.avg )        
             
-                self.writer.add_scalar('Best/Loss_Val', self.best_loss_test, epoch)
-                self.Best_Loss_Test.append(self.best_loss_test)  
-
-                self.writer.add_scalar('Best/Top1', self.best_top1_test, epoch)
-                self.Best_Top1_Test.append(self.best_top1_test) 
-
 
     def stage_quantities(self):
        
@@ -305,7 +279,7 @@ class TraVal(object):
 
 
         # scen_name, scen_time = self.time_remover(self.curr_scen_name)
-        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/main'
+        path1 = f'./{root}/{self.args.dataname}/{self.args.arch}/'
         self.folder_builder(path = path1, folder_name = self.scen_time)
         path = f'{path1}/{self.scen_time}/'
 
@@ -333,13 +307,6 @@ class TraVal(object):
 
         file_name = f'Learning_Rate_{self.scen_name}.npy'
         np.save(path + file_name, self.Learning_Rate)
-
-
-        file_name = f'Best_Loss_Test_{self.scen_name}.npy'
-        np.save(path + file_name, self.Best_Loss_Test)
-
-        file_name = f'Best_Top1_Test_{self.scen_name}.npy'
-        np.save(path + file_name, self.Best_Top1_Test)
 
 
 

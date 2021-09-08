@@ -16,9 +16,6 @@ class Directories(object):
                         'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
                         'mobilenet_v2']
 
-        self.level_1 = ['main'] 
-
-
         # extract the time and name of the scenario from `curr_scen_name`
         self.scen_name, self.scen_time = self.time_remover(self.curr_scen_name)
         # creates folders wherein logs are saved
@@ -84,9 +81,6 @@ class Directories(object):
                     if self.args.arch == ar:
                         if not os.path.exists(f'./{root}/{d}/{ar}'):
                             os.makedirs(f'./{root}/{d}/{ar}') 
-                        for j in self.level_1:
-                            if not os.path.exists(f'./{root}/{d}/{ar}/{j}'): 
-                                os.makedirs(f'./{root}/{d}/{ar}/{j}') 
                                
     
     def time_remover(self, curr_scen_name):
