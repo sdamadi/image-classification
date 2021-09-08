@@ -9,7 +9,7 @@ Note that [Apex module developed by Nvidia](https://github.com/NVIDIA/apex) does
 The advantage of using the Automatic Mixed Precision module is that the speed of training gets boosted twice, at least. Also, be mindful that the Automatic Mixed Precision is only used in the training process.
 
 ### How to use it?
-We mainly follow [Typical Mixed Precision Training documention for Pytorch](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training). However, in our code there are two modules dealing with the Automatic Mixed Precision as follows: 
+We mainly follow [Typical Mixed Precision Training documentation for Pytorch](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training). However, in our code there are two modules dealing with the Automatic Mixed Precision as follows: 
 - `main.py`
 - `utils/train_validation.py`.
 
@@ -19,7 +19,7 @@ We mainly follow [Typical Mixed Precision Training documention for Pytorch](http
 scaler = torch.cuda.amp.GradScaler()
 ```
 
-2. Again, in `main.py` pass the `scaler` instance to `TraVal` class to create an instance of taining and validation.
+2. Again, in `main.py` pass the `scaler` instance to `TraVal` class to create an instance of training and validation.
 
 ```{python}
 traval = TraVal(model, train_loader, optimizer,
@@ -36,7 +36,7 @@ traval = TraVal(model, train_loader, optimizer,
 from torch.cuda.amp import autocast
 ``` 
 
-4. In training process only forward pass with autocasting are recommended. Do not use backward passes. Therefore, `autocast` only wraps the forward pass(es) of the network, including the loss computation(s) as the followning:
+4. In training process only forward pass with autocasting are recommended. Do not use backward passes. Therefore, `autocast` only wraps the forward pass(es) of the network, including the loss computation(s) as the following:
 
 ```{python}
 with autocast():
@@ -56,4 +56,3 @@ self.scaler.scale(loss).backward()
 ```{python}
 self.scaler.update()
 ```
-
