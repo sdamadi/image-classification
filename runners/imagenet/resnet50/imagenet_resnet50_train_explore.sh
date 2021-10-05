@@ -14,7 +14,7 @@ python -m torch.distributed.launch --nproc_per_node=4 \
 --weight-decay 0.0001 \
 --batch-size 205 \
 --epochs 90 \
---gpu-idx 0 1 2 3 \
+--gpu-ids 0 1 2 3 \
 --logterminal \
 --config imagenet_resnet50_train 
 done

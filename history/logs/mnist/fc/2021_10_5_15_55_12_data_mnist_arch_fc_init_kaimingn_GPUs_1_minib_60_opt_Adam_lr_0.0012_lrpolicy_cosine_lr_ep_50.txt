@@ -1,0 +1,71 @@
+
+========> The following is the setup for this run:
+
+2021_10_5_15_55_12_data_mnist_arch_fc_init_kaimingn_GPUs_1_minib_60_opt_Adam_lr_0.0012_lrpolicy_cosine_lr_ep_50
+
+config: mnist_fc_train
+arch: fc
+dataname: mnist
+data_path: /datasets/imagenet/
+data_workers: 20
+data_bsize: 1024
+data_channel: False
+init_dense_policy: kaimingn
+init_bias_policy: zero
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+optimizer_alg: SGD+M
+optimizer_init_epoch: 0
+optimizer_epochs: 10
+optimizer_momentum: 0.9
+optimizer_nesterov: False
+lr_init_value: 0.0012
+lr_weight_decay: 0.0001
+lr_policy: cosine_lr
+lr_warmup_length: 5
+lr_damp_rate: 0.1
+lr_damp_steps: None
+lr_cosine_scale: 1
+lr_gauss_scale: 1500
+log_print_train: 10
+log_print_test: 10
+log_terminal: True
+log_save_epochs: False
+pretrained: False
+resume: 
+evaluate: False
+dist_gpus: [0]
+dist_local_rank: 0
+datapath: ./data/mnist/
+workers: 20
+batch_size: 60
+init_policy: kaimingn
+init_bias: zero
+optimizer: Adam
+epochs: 50
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0012
+warmup_length: 0
+lr_steps: None
+lr_gamma: 0.0
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+gpu_ids: ['0']
+local_rank: 0
+channels_last: False
+print_freq_tr: 10
+print_freq_ts: 10
+logterminal: False
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 45989.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+

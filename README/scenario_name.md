@@ -62,7 +62,7 @@ As we explained in [Distributed Data Parallel training](https://github.com/sdama
 
 ```{python}
 if args.local_rank == 0:
-  writer = init_desc(args, scenario, distributed) 
+  writer = init_writer(args, scenario, distributed) 
 ```
 
 Then, [`writer.py`](https://github.com/sdamadi/image-classification/blob/main/utils/writer.py) uses `scenario.curr_scen_name` to print out the name of the scenario in terminal. 

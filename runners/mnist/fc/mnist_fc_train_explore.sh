@@ -14,7 +14,7 @@ python -m torch.distributed.launch --nproc_per_node=1 \
 --lr 0.0012 \
 --batch-size 1024 \
 --epochs 10 \
---gpu-idx $i \
+--gpu-ids $i \
 --logterminal \
 --config mnist_fc_train
 sleep 5

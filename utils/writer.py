@@ -1,3 +1,9 @@
+import sys, os
+import torch
+from utils.directories import Directories
+from utils.logger import Logger
+from torch.utils.tensorboard import SummaryWriter
+
 def init_writer(args, scenario, distributed):
 
     if args.local_rank == 0:
@@ -15,8 +21,8 @@ def init_writer(args, scenario, distributed):
         print(f"\n=> Global rank of the current node is {torch.distributed.get_rank() if distributed.args.world_size>1 else 0}"\
             f" and the process id is {os.getpid()}."\
             f"\n=> There are {distributed.args.world_size} process(es) runing on GPU(s)."\
-            f"\n=> Visible GPU(s) are {args.gpu_idx} for running {distributed.args.world_size} process(es)."\
+            f"\n=> Visible GPU(s) are {args.gpu_ids} for running {distributed.args.world_size} process(es)."\
             f"\n=> Execute `nvidia-smi` on a differnt terminal to see used GPUs."\
-            f"\n=> GPU {args.gpu_idx[args.local_rank]} whose id is {args.local_rank} is being used for training of the current process.\n")
+            f"\n=> GPU {args.gpu_ids[args.local_rank]} whose id is {args.local_rank} is being used for training of the current process.\n")
     
     return writer

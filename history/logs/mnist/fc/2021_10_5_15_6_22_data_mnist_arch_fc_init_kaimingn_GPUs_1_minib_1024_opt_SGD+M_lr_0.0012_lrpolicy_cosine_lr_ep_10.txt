@@ -1,0 +1,55 @@
+
+========> The following is the setup for this run:
+
+2021_10_5_15_6_22_data_mnist_arch_fc_init_kaimingn_GPUs_1_minib_1024_opt_SGD+M_lr_0.0012_lrpolicy_cosine_lr_ep_10
+
+arch: fc
+pretrained: False
+resume: 
+dataname: mnist
+datapath: ./data/mnist/
+workers: 20
+batch_size: 1024
+dense_bias_init: zero
+dense_init_policy: kaimingn
+kaiming_mode: fan_in
+kaiming_nonlinearity: relu
+dense_init_bias: zero
+optimizer: SGD+M
+initial_epoch: 0
+epochs: 10
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0012
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: mnist_fc_train
+logterminal: True
+save_stages: False
+gpu_ids: ['0']
+local_rank: 0
+channels_last: False
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+distributed: False
+world_size: 1
+
+=> Global rank of the current node is 0 and the process id is 20465.
+=> There are 1 process(es) runing on GPU(s).
+=> Visible GPU(s) are ['0'] for running 1 process(es).
+=> Execute `nvidia-smi` on a differnt terminal to see used GPUs.
+=> GPU 0 whose id is 0 is being used for training of the current process.
+

@@ -132,16 +132,16 @@ class TraVal(object):
                     self.avg_throughput_tr = self.args.world_size*self.args.batch_size/self.batch_time_tr.avg
 
                     print(
-                        f'Training: Num of GPUs:{self.args.world_size:2} | '\
+                        f'Train: Num of GPUs:{self.args.world_size:2} | '\
                         f'Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'[{i:4}/{len(self.train_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_tr*self.batch_time_tr.avg:4.2f} | '\
                         f'Speed: (pics/sec): {self.avg_throughput_tr:5.0f}\n'\
                         f'Learning rate: {self.lr:5.4f} | '\
-                        f'Curr loss: {self.losses_tr.val:5.4f} | '\
-                        f'Avg loss: {self.losses_tr.avg:5.4f} | '\
-                        f'Prec@1(avg) {self.top1_tr.avg:4.2f} % | '\
-                        f'Prec@5(avg) {self.top5_tr.avg:4.2f} %\n')
+                        f'Curr loss: {self.losses_tr.val:3.2f} | '\
+                        f'Avg loss: {self.losses_tr.avg:3.2f} | '\
+                        f'Top1A {self.top1_tr.avg:4.2f} % | '\
+                        f'Top5A {self.top5_tr.avg:4.2f} %\n')
 
             input, target = prefetcher.next()
 
@@ -206,14 +206,14 @@ class TraVal(object):
                     
 
                     print(
-                        f'Validation: Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
+                        f'Val: Epoch: [{self.epoch+1:2}/{self.args.epochs:2}] | '\
                         f'Seen data: [{i:4}/{len(self.validation_loader):4}] | '\
                         f'Time(avg): {self.args.print_freq_ts*self.batch_time_ts.avg:4.2f} | '\
                         f'Speed: (pics/sec): {self.avg_throughput_ts:5.0f}\n'\
-                        f'Curr loss: {self.losses_ts.val:5.4f} | '\
-                        f'Avg loss: {self.losses_ts.avg:5.4f} | '\
-                        f'Prec@1(avg) {self.top1_ts.avg:4.2f} % | '\
-                        f'Prec@5(avg) {self.top5_ts.avg:4.2f} %\n')
+                        f'Curr loss: {self.losses_ts.val:3.2f} | '\
+                        f'Avg loss: {self.losses_ts.avg:3.2f} | '\
+                        f'Top1A {self.top1_ts.avg:4.2f} % | '\
+                        f'Top5A {self.top5_ts.avg:4.2f} %\n')
             
             
             

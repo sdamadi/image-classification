@@ -38,7 +38,7 @@ prune_bias: False
 prune_bn: False
 local_quant: False
 # ===== Distributed processing ======== #
-gpu_idx: '0'
+gpu_ids: '0'
 local_rank: 0 
 channels_last: False
 # ===== Logging ======== #

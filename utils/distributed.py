@@ -21,19 +21,18 @@ class Distributed(object):
             self.args.distributed = int(os.environ['WORLD_SIZE']) > 1
         
         if self.args.distributed:
-        
 
-            # `args.gpu_idx` is a list of indices of gpus each on which
+            # `args.gpu_ids` is a list of indices of gpus each on which
             # each process will be run and would be the same for every node 
             
-            if self.args.gpu_idx == 'None':
-                self.args.gpu_idx = [f'{i}' for i in range(torch.cuda.device_count())]
-                s = ','.join(self.args.gpu_idx)
+            if self.args.gpu_ids == 'None':
+                self.args.gpu_ids = [f'{i}' for i in range(torch.cuda.device_count())]
+                s = ','.join(self.args.gpu_ids)
                 os.environ['CUDA_VISIBLE_DEVICES'] = s     
             else:
                 #creating a string for `CUDA_VISIBLE_DEVICES`
-                self.args.gpu_idx = [f'{i}' for i in self.args.gpu_idx]
-                s = ','.join(self.args.gpu_idx)
+                self.args.gpu_ids = [f'{i}' for i in self.args.gpu_ids]
+                s = ','.join(self.args.gpu_ids)
                 os.environ['CUDA_VISIBLE_DEVICES'] = s
             
             # this is the total # of GPUs across all nodes
@@ -47,13 +46,13 @@ class Distributed(object):
         else:
             self.args.world_size = 1
             
-            if self.args.gpu_idx == 'None':
-                self.args.gpu_idx = [f'{i}' for i in range(torch.cuda.device_count())]
-                s = ','.join(self.args.gpu_idx)
+            if self.args.gpu_ids == 'None':
+                self.args.gpu_ids = [f'{i}' for i in range(torch.cuda.device_count())]
+                s = ','.join(self.args.gpu_ids)
                 os.environ['CUDA_VISIBLE_DEVICES'] = s
             else:
-                self.args.gpu_idx = [f'{i}' for i in self.args.gpu_idx]
-                s = ','.join(self.args.gpu_idx)
+                self.args.gpu_ids = [f'{i}' for i in self.args.gpu_ids]
+                s = ','.join(self.args.gpu_ids)
                 os.environ['CUDA_VISIBLE_DEVICES'] = s
             
             self.cuda_id = self.args.local_rank

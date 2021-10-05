@@ -1,41 +1,49 @@
 # python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM main.py -a fc --dataname mnist --config mnist_fc_train --logterminal
-# ===== Configuration ===== #
+
+# ===== Default configuration ===== #
 config: mnist_fc_train
 # ===== Architecture ===== #
 arch: 'fc'
-pretrained: False
-resume: ''
 # ===== Dataset ===== #
 dataname: 'mnist'
 datapath: './data/mnist/'
 workers: 20
 batch_size: 60
-# ===== Initialization ===== #
-init_policy: 'kaimingn'
-init_kaiming_mode: 'fan_in'
-init_kaiming_nonlinearity: 'relu'
-init_bias: 'zero'
+channels_last: False
+# ===== Model Initialization ===== #
+dense_init_policy: 'kaimingn'
+dense_bias_init: 'zero'
+kaiming_mode: 'fan_in'
+kaiming_nonlinearity: 'relu'
 # ===== Optimization ======== #
 optimizer: 'Adam'
+initial_epoch: 0
 epochs: 50
+momentum: 0.9
+nesterov: False
 label_smoothing: 0.0
-weight_decay: 0.0
+# ===== Learning rate ======== #
 lr: 0.0012
 lr_policy: 'constant_lr'
+weight_decay: 0
 warmup_length: 0
-lr_steps: 
+# ===== Multistep damped learning rate ======== #
 lr_gamma: 0.0
+lr_steps: 
+# ===== Cosine damped learning rate ======== # 
 scale_coslr: 1
-exp_coslr: 1
-normal_exp_scale: 1500
-momentum: 0.0
-nesterov: False
+# ===== Gaussian damped learning rate ======== # 
+scale_gausslr: 1500
 evaluate: False
-# ===== Distributed processing ======== #
-gpu_idx: '0'
-local_rank: 0 
-channels_last: False
 # ===== Logging ======== #
 print_freq_tr: 10
 print_freq_ts: 10
 logterminal: False
+save_epochs: False
+# ===== Trainig Status ===== #
+pretrained: False
+resume: ''
+# ===== Distributed processing ======== #
+gpu_ids: '0'
+local_rank: 0 
+

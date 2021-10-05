@@ -1,0 +1,43 @@
+
+========> The following is the setup for this run:
+
+2021_10_3_2_22_10_data_mnist_arch_fc_init_kaimingn_GPUs_1_minib_1024_opt_SGD+M_lr_0.0012_lrpolicy_cosine_lr_ep_10
+
+arch: fc
+pretrained: False
+resume: 
+dataname: mnist
+datapath: ./data/mnist/
+workers: 20
+batch_size: 1024
+init_policy: kaimingn
+init_kaiming_mode: fan_in
+init_kaiming_nonlinearity: relu
+init_bias: zero
+optimizer: SGD+M
+epochs: 10
+initial_epoch: 0
+label_smoothing: 0.0
+weight_decay: 0.0
+lr: 0.0012
+lr_policy: cosine_lr
+warmup_length: 0
+lr_gamma: 0.0
+lr_steps: None
+lowest_lr: 0.0001
+scale_coslr: 1
+exp_coslr: 1
+normal_exp_scale: 1500
+momentum: 0.0
+nesterov: False
+evaluate: False
+print_freq_tr: 10
+print_freq_ts: 10
+config: mnist_fc_train
+logterminal: True
+save_stages: False
+gpu_idx: ['0']
+local_rank: 0
+channels_last: False
+distributed: False
+world_size: 1
